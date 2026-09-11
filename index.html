@@ -3,21 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>肇庆旅行</title>
+<title>肇庆摩旅一日游 · 竹海 · 溪山</title>
+<meta name="description" content="广州花都出发、当天往返的肇庆摩托一日游攻略：广宁竹海、四会贞山，含时间线、路线示意与装备安全清单。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       background:#f2efe8;color:#252019;
-       font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;}
-  main{text-align:center;padding:40px;}
-  h1{font-size:28px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em;}
-  p{color:#6d6555;font-size:15px;line-height:1.8;margin:0;}
-  code{background:#e5e0d3;padding:2px 7px;font-size:13px;}
+  :root{
+    --bg: #f7f3ec;
+    --surface: #fdfbf7;
+    --surface-2: #f0ead9;
+    --cream-card: #fbf7ef;
+    --ink: #2a2117;
+    --muted: #6e6152;
+    --line: #ded3bd;
+    --rust: #b3551f;
+    --rust-ink: #8a3f18;
+    --moss: #4c7a52;
+    --moss-ink: #365a3b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1c1712; --surface:#241d16; --surface-2:#2c241a; --cream-card:#27201a;
+      --ink:#f1e9dc; --muted:#b7a98f; --line:#4a3f2f; --rust:#e08a4c; --rust-ink:#f0a96e; --moss:#7fae82; --moss-ink:#9bc79c;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1c1712; --surface:#241d16; --surface-2:#2c241a; --cream-card:#27201a;
+    --ink:#f1e9dc; --muted:#b7a98f; --line:#4a3f2f; --rust:#e08a4c; --rust-ink:#f0a96e; --moss:#7fae82; --moss-ink:#9bc79c;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:"Noto Serif SC","Noto Sans SC","PingFang SC",serif; margin:0; }
+  a{ color:var(--rust-ink); } a:hover{ color:var(--rust); }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 20px 80px; }
+  .icon{ width:20px; height:20px; flex:none; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .hero{ background:linear-gradient(180deg, #4a3420 0%, #2c1f13 100%); color:#f3ece0; padding:56px 20px 48px; }
+  .stat{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:10px 16px; }
+  .stat-label{ font-size:11px; color:#d8c6a8; letter-spacing:0.06em; }
+  .stat-val{ font-size:16px; font-weight:700; margin-top:2px; }
+  section{ margin-bottom:52px; }
+  .section-title{ font-size:22px; font-weight:700; color:var(--rust-ink); margin-bottom:18px; }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px; }
+  .grid-2{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
+  .grid-3{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+  .tl-row{ display:grid; grid-template-columns:88px 24px 1fr; gap:0 16px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .tl-row:last-child{ border-bottom:none; }
+  .tl-time{ font-size:14px; font-weight:700; color:var(--rust-ink); padding-top:1px; }
+  .tl-dot-wrap{ display:flex; justify-content:center; }
+  .tl-dot{ width:9px; height:9px; border-radius:50%; margin-top:6px; }
+  .tl-title{ font-size:15px; font-weight:600; }
+  .tl-desc{ font-size:13px; color:var(--muted); margin-top:3px; line-height:1.7; }
+  ul.check{ margin:0; padding-left:18px; font-size:13.5px; line-height:2; color:var(--muted); }
+  .route-card{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:28px 20px 20px; overflow-x:auto; }
 </style>
 </head>
 <body>
-<main>
-  <h1>肇庆旅行</h1>
-  <p>Pages 已部署成功,等待内容。<br>替换本仓库的 <code>index.html</code> 即可更新此页。</p>
-</main>
+
+<div class="hero">
+  <div class="wrap" style="padding-bottom:0; display:flex; flex-direction:column; gap:18px;">
+    <div style="display:flex; align-items:center; gap:10px; color:#e0b98a; font-size:13px; letter-spacing:0.12em; font-weight:600;">
+      <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M12 2 L12 6 M12 18 L12 22 M2 12 L6 12 M18 12 L22 12"/><circle cx="12" cy="12" r="5"/></svg>
+      GUANGDONG · ZHAOQING · ONE-DAY RIDE
+    </div>
+    <h1 style="font-size:clamp(30px,5.5vw,46px); font-weight:900; line-height:1.15;">肇庆摩旅一日游<br>竹海 · 溪山 · 远离市区</h1>
+    <p style="margin:0; max-width:56ch; font-size:15px; line-height:1.8; color:#e6dcc9;">
+      从广州花都出发，一日往返，穿山过林、避开城区，直奔肇庆西部的竹海与溪山。路线以山区县道为主，弯多景美，适合结伴慢骑。
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;">
+      <div class="stat"><div class="stat-label">出发 / 返程</div><div class="stat-val">07:00 → 22:00 前</div></div>
+      <div class="stat"><div class="stat-label">全程里程</div><div class="stat-val">约 290 公里</div></div>
+      <div class="stat"><div class="stat-label">路况强度</div><div class="stat-val">中等 · 山路弯多</div></div>
+      <div class="stat"><div class="stat-label">出行日期</div><div class="stat-val">[待定 · 建议避开雷雨]</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:44px;">
+
+  <section>
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px; flex-wrap:wrap;">
+      <h2 class="section-title" style="margin-bottom:0;">路线速览</h2>
+      <span style="font-size:13px; color:var(--muted);">花都 → 四会 · 贞山 → 广宁 · 竹海 → 花都（环线）</span>
+    </div>
+    <div class="route-card">
+      <svg viewBox="0 0 820 160" style="width:100%; min-width:680px; height:auto; display:block;">
+        <path d="M 40 90 C 220 30, 300 150, 420 90 S 620 30, 780 90" fill="none" stroke="var(--rust)" stroke-width="3" stroke-dasharray="1 12" stroke-linecap="round"/>
+        <g>
+          <circle cx="40" cy="90" r="9" fill="var(--rust)"/>
+          <text x="40" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">花都</text>
+          <text x="40" y="140" text-anchor="middle" font-size="11" fill="var(--muted)">07:00 出发</text>
+        </g>
+        <g>
+          <circle cx="300" cy="90" r="9" fill="var(--moss)"/>
+          <text x="300" y="55" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">四会 · 贞山</text>
+          <text x="300" y="122" text-anchor="middle" font-size="11" fill="var(--muted)">约 95km · 09:00 抵达</text>
+        </g>
+        <g>
+          <circle cx="540" cy="90" r="9" fill="var(--moss)"/>
+          <text x="540" y="55" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">广宁 · 竹海</text>
+          <text x="540" y="122" text-anchor="middle" font-size="11" fill="var(--muted)">约 45km · 12:40 抵达</text>
+        </g>
+        <g>
+          <circle cx="780" cy="90" r="9" fill="var(--rust)"/>
+          <text x="780" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">花都</text>
+          <text x="780" y="140" text-anchor="middle" font-size="11" fill="var(--muted)">约 150km · 18:00 到家</text>
+        </g>
+      </svg>
+      <p style="margin:14px 4px 0; font-size:12.5px; color:var(--muted); line-height:1.7;">
+        建议整体走环线，去程走高速+省道快速接近山区，返程避开肇庆市区、经大广/珠三角环线高速返回花都。具体路况请出发前以导航实时数据为准。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">全天时间线</h2>
+    <div class="card" style="padding:8px 22px;">
+
+      <div class="tl-row">
+        <div class="tl-time">07:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--rust);"></div></div>
+        <div><div class="tl-title">花都集结出发</div><div class="tl-desc">检查胎压、油量、链条与装备，确认队形与对讲频道，结伴出发。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">07:00–09:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--muted);"></div></div>
+        <div><div class="tl-title">骑行赴四会（约 95km）</div><div class="tl-desc">高速 + 省道为主，中途服务区休整约 10 分钟，补水。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">09:00–11:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--moss);"></div></div>
+        <div><div class="tl-title">四会 · 贞山风景区</div><div class="tl-desc">沿溪步道走一圈核心景段即可，拍照、透气，为下一站预留时间。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">11:00–11:40</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--muted);"></div></div>
+        <div><div class="tl-title">转场广宁（约 45km 山路县道）</div><div class="tl-desc">弯道密集，减速慢行，保持车距，注意对向来车与落石路段。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">11:40–12:40</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--muted);"></div></div>
+        <div><div class="tl-title">广宁午餐</div><div class="tl-desc">当地农家菜：笋干扣肉、走地鸡、山坑螺，为下午体力补给。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">12:40–15:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--moss);"></div></div>
+        <div><div class="tl-title">广宁 · 竹海大观公园</div><div class="tl-desc">沿山脊观光道慢骑穿林，登观景台俯瞰百里竹海，今日重头戏。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">15:00–15:30</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--muted);"></div></div>
+        <div><div class="tl-title">加油补给、检查车况</div><div class="tl-desc">山区加油站少，务必加满；顺带检查胎压与刹车。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">15:30–18:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--muted);"></div></div>
+        <div><div class="tl-title">返程回花都（约 150km）</div><div class="tl-desc">以高速为主，尽量在 17:30 前驶离山区路段，避免天黑走山路。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">18:00–19:30</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--rust);"></div></div>
+        <div><div class="tl-title">花都本地晚餐、复盘</div><div class="tl-desc">卸装、简单车辆清洁，聊聊今天的路况与照片。</div></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-time">19:30–22:00</div>
+        <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--rust);"></div></div>
+        <div><div class="tl-title">弹性缓冲，最晚 22:00 到家</div><div class="tl-desc">预留给突发状况（爆胎、堵车、临时休整）的安全冗余时间。</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">目的地看点</h2>
+    <div class="grid-2">
+      <div class="card" style="background:var(--cream-card); display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px; color:var(--moss-ink);">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 20 L9 8 L13 15 L16 10 L21 20 Z"/></svg>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em;">远离市区 · 山林</span>
+        </div>
+        <h3 style="font-size:18px; font-weight:700;">广宁竹海大观公园</h3>
+        <p style="font-size:13.5px; line-height:1.8; color:var(--muted); margin:0;">
+          号称"中国十大竹海"之一，连绵山头被毛竹覆盖，观光道沿山脊修建，骑行、步行皆宜，山顶观景台可俯瞰云雾竹浪。远离肇庆市区，客流相对少，适合慢骑穿林、取景拍照。
+        </p>
+      </div>
+      <div class="card" style="background:var(--cream-card); display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px; color:var(--moss-ink);">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 18 Q8 10 12 18 T20 18"/><path d="M4 12 Q8 4 12 12 T20 12" opacity="0.5"/></svg>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em;">溪山 · 步道</span>
+        </div>
+        <h3 style="font-size:18px; font-weight:700;">四会贞山风景区</h3>
+        <p style="font-size:13.5px; line-height:1.8; color:var(--muted); margin:0;">
+          位于四会西部山区，以奇峰、溪流与森林步道见长，栈道沿溪而建，山泉清澈，是夏日消暑纳凉的好去处；同样地处山区腹地，远离城区喧嚣。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">装备与安全</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--rust-ink);"><circle cx="12" cy="8" r="4"/><path d="M6 21 C6 16 8 14 12 14 C16 14 18 16 18 21"/></svg>
+          <h3 style="font-size:15px; font-weight:700;">骑行装备</h3>
+        </div>
+        <ul class="check">
+          <li>全盔（备清晰 / 墨镜片）</li>
+          <li>骑行服（护肩、护肘、护脊）</li>
+          <li>护膝护胫、防摔手套</li>
+          <li>防滑骑行靴</li>
+          <li>轻便雨衣雨裤</li>
+          <li>魔术头巾、防晒</li>
+          <li>水袋或随行水壶</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--rust-ink);"><rect x="4" y="7" width="16" height="13" rx="1.5"/><path d="M8 7 V4 h8 v3"/></svg>
+          <h3 style="font-size:15px; font-weight:700;">随车工具</h3>
+        </div>
+        <ul class="check">
+          <li>工具包 + 补胎液 / 备胎</li>
+          <li>胎压表、便携打气筒</li>
+          <li>手机支架、充电宝</li>
+          <li>行车记录仪</li>
+          <li>对讲机（结伴出行）</li>
+          <li>现金 + 加油卡 / ETC</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--rust-ink);"><path d="M12 3 L20 7 V12 C20 17 16.5 20 12 21 C7.5 20 4 17 4 12 V7 Z"/><path d="M9 12 L11 14 L15 9"/></svg>
+          <h3 style="font-size:15px; font-weight:700;">安全提醒</h3>
+        </div>
+        <ul class="check">
+          <li>山路弯多路窄，减速慢行、靠右礼让</li>
+          <li>结伴骑行，保持车距，不炸街不飙车</li>
+          <li>每 1.5–2 小时停靠休息、补水</li>
+          <li>雷雨天气避免继续山路骑行</li>
+          <li>18:00 前驶离山区，夜间照明差</li>
+          <li>新手建议由熟悉路线的车友带队</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface-2); border-radius:16px; padding:22px 24px; margin-bottom:8px;">
+    <div style="display:flex; align-items:flex-start; gap:10px;">
+      <svg class="icon" viewBox="0 0 24 24" style="color:var(--rust-ink); margin-top:2px;"><circle cx="12" cy="12" r="9"/><path d="M12 8 v5 M12 16.2 v0.1"/></svg>
+      <p style="margin:0; font-size:13px; line-height:1.9; color:var(--muted);">
+        以上里程、时间与描述仅供行前参考，出发前请通过导航 App 与景区官方渠道核实实时路况、开放时间、门票价格及天气预警。摩旅请遵守当地交通法规，佩戴合规头盔，量力而行。
+      </p>
+    </div>
+  </section>
+
+</div>
 </body>
 </html>
