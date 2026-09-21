@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>梯面 · 旅行记录</title>
+<meta name="description" content="花都梯面红山村玩水一日游:上午十一点抵达,一整天泡在溪沟水潭里游泳、抓鱼、摸螃蟹,晚上入住镇圩或村里的百元档民宿。">
+<style>
+  :root{--paper:#f4f1e9;--ink:#241f18;--muted:#6f6757;--line:#ddd6c7;--accent:#9c5533;--accent2:#4b6b4f;--water:#2f7391;}
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#17150f;--ink:#eae5d7;--muted:#968f7e;--line:#332f26;--accent:#d08a5f;--accent2:#7fae82;--water:#7fc4de;}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       line-height:1.85;}
+  .wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px;}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;
+        letter-spacing:.08em;margin-bottom:32px;}
+  .back:hover{color:var(--accent);}
+  h1{font-size:clamp(30px,6vw,44px);font-weight:800;letter-spacing:-.01em;
+     line-height:1.15;margin:0 0 10px;}
+  .meta{color:var(--muted);font-size:13px;letter-spacing:.06em;margin-bottom:28px;}
+  .intro{font-size:15px;color:var(--ink);margin-bottom:36px;max-width:56ch;}
+  h2{font-size:20px;font-weight:700;letter-spacing:-.005em;margin:0 0 16px;color:var(--accent);}
+  section{margin-bottom:48px;}
+  .stats{border-top:1px solid var(--line);margin-bottom:48px;}
+  .stat-row{display:flex;justify-content:space-between;gap:16px;
+             padding:12px 2px;border-bottom:1px solid var(--line);font-size:14px;}
+  .stat-row .k{color:var(--muted);flex-shrink:0;}
+  .stat-row .v{font-weight:700;text-align:right;}
+  .icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;
+        stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .route-box{border:1px solid var(--line);padding:20px 14px 14px;overflow-x:auto;}
+  .route-note{margin:14px 2px 0;font-size:12.5px;color:var(--muted);}
+  .tl{border-top:1px solid var(--line);}
+  .tl-row{display:grid;grid-template-columns:96px 1fr;gap:2px 16px;
+          padding:16px 2px;border-bottom:1px solid var(--line);}
+  .tl-time{font-size:13px;font-weight:700;color:var(--accent);padding-top:1px;}
+  .tl-row.highlight .tl-time{color:var(--water);}
+  .tl-title{font-size:15px;font-weight:700;}
+  .tl-row.highlight .tl-title{color:var(--water);}
+  .tl-desc{grid-column:2;font-size:13.5px;color:var(--muted);margin-top:2px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .card{border:1px solid var(--line);padding:20px;}
+  .card.feature{border-color:var(--water);}
+  .card .tag{display:flex;align-items:center;gap:6px;color:var(--accent2);
+              font-size:11.5px;font-weight:700;letter-spacing:.06em;margin-bottom:10px;}
+  .card.feature .tag{color:var(--water);}
+  .card h3{font-size:16px;font-weight:700;margin:0 0 8px;}
+  .card p{font-size:13.5px;color:var(--muted);margin:0;}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .col h3{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;margin:0 0 10px;}
+  .col ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:2;}
+  .note{border:1px solid var(--line);padding:20px;font-size:13px;color:var(--muted);
+        display:flex;gap:10px;align-items:flex-start;}
+  .note .icon{margin-top:2px;color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← 全部游记</a>
+  <h1>梯面</h1>
+  <div class="meta">广东 · 花都梯面红山村 · 玩水一日游</div>
+  <p class="intro">上午十一点直接扎进花都梯面红山村的溪沟水潭,一整天不赶景点、不赶路,就为游泳、抓鱼、摸螃蟹这一件事。中午回岸上吃一顿山坑鱼农家菜,下午换个更浅缓的河段接着玩,傍晚收工冲洗,当晚就近住进镇圩或村里的百元档民宿,睡个安稳觉。</p>
+
+  <div class="stats">
+    <div class="stat-row"><span class="k">建议时间</span><span class="v">4–10 月的晴朗周末,丰水期水量足、消暑正好</span></div>
+    <div class="stat-row"><span class="k">抵达</span><span class="v">上午 11:00 到达梯面红山村</span></div>
+    <div class="stat-row"><span class="k">核心玩法</span><span class="v">溪沟水潭游泳、抓鱼、摸螃蟹</span></div>
+    <div class="stat-row"><span class="k">住宿</span><span class="v">镇圩 / 村里农家乐或民宿,双人间约 100–130 元</span></div>
+  </div>
+
+  <section>
+    <h2>动线速览</h2>
+    <div class="route-box">
+      <svg viewBox="0 0 900 170" style="width:100%;min-width:680px;height:auto;display:block;">
+        <path d="M 40 100 C 150 40, 220 150, 320 100 S 460 40, 560 100 S 700 150, 800 100" fill="none" stroke="var(--water)" stroke-width="3" stroke-dasharray="1 12" stroke-linecap="round"/>
+        <circle cx="40" cy="100" r="8" fill="var(--accent)"/>
+        <text x="40" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">广州出发</text>
+        <text x="40" y="150" text-anchor="middle" font-size="11" fill="var(--muted)">自驾约 1.5 小时</text>
+        <circle cx="320" cy="100" r="9" fill="var(--water)"/>
+        <text x="320" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--water)">红山村</text>
+        <text x="320" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">11:00 到达</text>
+        <circle cx="560" cy="100" r="9" fill="var(--water)"/>
+        <text x="560" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--water)">溪谷水潭</text>
+        <text x="560" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">游泳 · 抓鱼 · 摸蟹</text>
+        <circle cx="700" cy="100" r="8" fill="var(--accent2)"/>
+        <text x="700" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">农家饭馆</text>
+        <text x="700" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">午饭 · 午休</text>
+        <circle cx="800" cy="100" r="8" fill="var(--accent)"/>
+        <text x="800" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">镇圩民宿</text>
+        <text x="800" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">傍晚入住过夜</text>
+      </svg>
+      <p class="route-note">全程围着红山村打转:溪谷玩水点分上下午两段,中间隔一顿午饭和一场午休错开正午最晒的时段,傍晚收工后直接住进步行或短驳可达的镇圩民宿,不用再挪地方。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>全天时间线</h2>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-time">11:00</div><div class="tl-title">抵达梯面红山村</div><div class="tl-desc">自驾导航"红山村"即可;搭车则在花都汽车客运站坐花都—佛冈班车到梯面汽车站,再沿 X404 乡道往西约 5 公里包车或步行进村。</div></div>
+      <div class="tl-row"><div class="tl-time">11:00–11:30</div><div class="tl-title">换装下水前准备</div><div class="tl-desc">找村里向导或本地人问清今天水量正常的河段,换上速干衣裤和防滑溯溪鞋,带好抄网、小水桶和防水袋。</div></div>
+      <div class="tl-row highlight"><div class="tl-time">11:30–13:00</div><div class="tl-title">上午玩水场:溪谷水潭</div><div class="tl-desc">王子山脚下的溪水常年清澈见底,选水深及腰、水流平缓的潭区游泳戏水,石缝和石块底下摸鱼摸螺,是这一天真正的主角。</div></div>
+      <div class="tl-row"><div class="tl-time">13:00–14:00</div><div class="tl-title">午餐:农家山坑鱼</div><div class="tl-desc">上岸后找村里的农家菜馆,山坑鱼、走地鸡、艾糍是当地招牌,渔获若干也可以请老板加工一起上桌。</div></div>
+      <div class="tl-row"><div class="tl-time">14:00–14:30</div><div class="tl-title">树荫下午休</div><div class="tl-desc">正午太阳最烈,找棵大树或农家乐屋檐下歇一会,躲开暴晒时段。</div></div>
+      <div class="tl-row highlight"><div class="tl-time">14:30–17:00</div><div class="tl-title">下午玩水场:换个浅滩</div><div class="tl-desc">挪到水更浅、石头更多的河段,专攻抓鱼摸螃蟹,浅水沟渠里手脚并用翻石头,小孩和新手也能玩得动。</div></div>
+      <div class="tl-row"><div class="tl-time">17:00–17:30</div><div class="tl-title">冲洗更衣,清点战利品</div><div class="tl-desc">村里一般有冲凉水龙头可简单冲洗,换回干爽衣服;抓到的小鱼小蟹拍照留念后建议放归原处。</div></div>
+      <div class="tl-row"><div class="tl-time">17:30–18:30</div><div class="tl-title">入住镇圩民宿</div><div class="tl-desc">提前用美团或携程搜"梯面"或"红山村",按价格筛到 100–130 元档的农家乐双人间,当天下午到店办理入住最稳妥。</div></div>
+      <div class="tl-row"><div class="tl-time">18:30–20:00</div><div class="tl-title">晚饭:就地收尾</div><div class="tl-desc">民宿附近吃顿简单晚饭,走地鸡煲或农家小炒都合适,吃完整个人也累得差不多了。</div></div>
+      <div class="tl-row"><div class="tl-time">20:00 以后</div><div class="tl-title">村里散步,早点休息</div><div class="tl-desc">夜里山村安静,慢慢遛一圈助消化,回房间早点睡,养足精神应付第二天返程。</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>看点分类</h2>
+    <div class="cards">
+      <div class="card feature">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M3 16 c2-2 4-2 6 0 s4 2 6 0 s4-2 6 0"/><path d="M3 20 c2-2 4-2 6 0 s4 2 6 0 s4-2 6 0"/><circle cx="12" cy="8" r="4"/></svg>今日主角 · 溪谷玩水</div>
+        <h3>红山村溪沟水潭</h3>
+        <p>王子山森林公园脚下的溪水常年清澈凉爽,深浅两段各有玩法:深潭游泳戏水,浅滩翻石抓鱼摸螃蟹,一整天都泡得住。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M4 20 L8 4 L12 20 M12 20 L16 4 L20 20"/></svg>备选溯溪</div>
+        <h3>王子山森林公园</h3>
+        <p>省级森林公园,瀑潭相连、林木茂密,水量更大的日子可以往公园方向溯溪,作为红山村河段之外的备选。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M4 9 L12 4 L20 9 M9 20 v-6 h6 v6"/></svg>乡村人文</div>
+        <h3>蚝壳屋与镬耳房</h3>
+        <p>红山村是花都首个"全国文明村",村里保留着蚝壳墙老屋和广府镬耳建筑,玩水间隙顺路逛一逛,拍照发呆都合适。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 C8 3 6 6 6 9 c0 4 3 6 3 9 h6 c0-3 3-5 3-9 c0-3-2-6-6-6Z"/></svg>本地风味</div>
+        <h3>山坑鱼农家菜</h3>
+        <p>用溪水养出的山坑鱼是招牌,配走地鸡和当地艾糍,一顿农家饭就能吃出这片山水的味道。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>玩水装备清单</h2>
+    <div class="cols">
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 19 L10 5 L14 5 L20 19 M8 15 h8"/></svg>下水装备</h3>
+        <ul>
+          <li>防滑溯溪鞋或旧运动鞋,光脚踩石头容易划伤</li>
+          <li>速干衣裤,备一套干爽换洗衣物</li>
+          <li>泳镜、泳帽视个人习惯自备</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8 v4 l3 2"/></svg>抓鱼摸蟹工具</h3>
+        <ul>
+          <li>小抄网或漏勺,配一个带盖小水桶暂养</li>
+          <li>薄手套,翻石头摸螃蟹防夹手</li>
+          <li>防水袋装好手机、钥匙等怕湿物品</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6 v6 l4 2"/></svg>防晒补给</h3>
+        <ul>
+          <li>防晒霜、太阳帽,山村正午紫外线不弱</li>
+          <li>充足饮用水和一点零食,补给点不多</li>
+          <li>毛巾、防蚊液,傍晚山间蚊虫较多</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>实用提醒</h2>
+    <div class="cols">
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 21 s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>玩水安全</h3>
+        <ul>
+          <li>只在向导或村民指认的浅滩深潭活动,不去陌生深水区</li>
+          <li>野生溪流无救生员,小孩下水必须大人全程看牢</li>
+          <li>雷雨或上游放水天气取消下水,山洪来得很快</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 v18 M5 8 h14 M5 16 h14"/></svg>生态与礼仪</h3>
+        <ul>
+          <li>抓到的小鱼小蟹拍照留念后建议放归,适量即可</li>
+          <li>不带电鱼、毒鱼等破坏生态的工具</li>
+          <li>垃圾自己带走,不惊扰村民正常生活</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9 h18 M8 4 v5"/></svg>出行与住宿</h3>
+        <ul>
+          <li>自驾最方便,导航"红山村";搭车经花都汽车客运站转梯面班车</li>
+          <li>住宿在美团 / 携程搜"梯面"或"红山村",筛 100–130 元档农家乐</li>
+          <li>周末旺季建议提前一天电话确认房间,山村客房数量有限</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8 v5 M12 16.2 v0.1"/></svg>
+    <p style="margin:0;">溪谷水位和水质会随降雨和季节变化,下水前请先向本地村民或民宿老板确认当天安全的河段;野外水域没有救生设施,请评估自身水性,不要在不熟悉的深潭区域游泳。</p>
+  </div>
+</div>
+</body>
+</html>
