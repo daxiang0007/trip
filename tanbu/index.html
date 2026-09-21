@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭步 · 旅行记录</title>
+<meta name="description" content="花都炭步中秋一日游:上午入住铂尔顿酒店,白天逛塱头古村与藏书院古村,夜晚在塱头村看千年非遗民俗烧禾楼。">
+<style>
+  :root{--paper:#f4f1e9;--ink:#241f18;--muted:#6f6757;--line:#ddd6c7;--accent:#9c5533;--accent2:#4b6b4f;--fire:#c1481f;}
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#17150f;--ink:#eae5d7;--muted:#968f7e;--line:#332f26;--accent:#d08a5f;--accent2:#7fae82;--fire:#e77a4a;}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+       line-height:1.85;}
+  .wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px;}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;
+        letter-spacing:.08em;margin-bottom:32px;}
+  .back:hover{color:var(--accent);}
+  h1{font-size:clamp(30px,6vw,44px);font-weight:800;letter-spacing:-.01em;
+     line-height:1.15;margin:0 0 10px;}
+  .meta{color:var(--muted);font-size:13px;letter-spacing:.06em;margin-bottom:28px;}
+  .intro{font-size:15px;color:var(--ink);margin-bottom:36px;max-width:56ch;}
+  h2{font-size:20px;font-weight:700;letter-spacing:-.005em;margin:0 0 16px;color:var(--accent);}
+  section{margin-bottom:48px;}
+  .stats{border-top:1px solid var(--line);margin-bottom:48px;}
+  .stat-row{display:flex;justify-content:space-between;gap:16px;
+             padding:12px 2px;border-bottom:1px solid var(--line);font-size:14px;}
+  .stat-row .k{color:var(--muted);}
+  .stat-row .v{font-weight:700;text-align:right;}
+  .icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;
+        stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .route-box{border:1px solid var(--line);padding:20px 14px 14px;overflow-x:auto;}
+  .route-note{margin:14px 2px 0;font-size:12.5px;color:var(--muted);}
+  .tl{border-top:1px solid var(--line);}
+  .tl-row{display:grid;grid-template-columns:96px 1fr;gap:2px 16px;
+          padding:16px 2px;border-bottom:1px solid var(--line);}
+  .tl-time{font-size:13px;font-weight:700;color:var(--accent);padding-top:1px;}
+  .tl-row.highlight .tl-time{color:var(--fire);}
+  .tl-title{font-size:15px;font-weight:700;}
+  .tl-row.highlight .tl-title{color:var(--fire);}
+  .tl-desc{grid-column:2;font-size:13.5px;color:var(--muted);margin-top:2px;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .card{border:1px solid var(--line);padding:20px;}
+  .card.feature{border-color:var(--fire);}
+  .card .tag{display:flex;align-items:center;gap:6px;color:var(--accent2);
+              font-size:11.5px;font-weight:700;letter-spacing:.06em;margin-bottom:10px;}
+  .card.feature .tag{color:var(--fire);}
+  .card h3{font-size:16px;font-weight:700;margin:0 0 8px;}
+  .card p{font-size:13.5px;color:var(--muted);margin:0;}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+  .col h3{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;margin:0 0 10px;}
+  .col ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:2;}
+  .note{border:1px solid var(--line);padding:20px;font-size:13px;color:var(--muted);
+        display:flex;gap:10px;align-items:flex-start;}
+  .note .icon{margin-top:2px;color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← 全部游记</a>
+  <h1>炭步</h1>
+  <div class="meta">广东 · 花都中秋一日游 · 塱头古村烧禾楼</div>
+  <p class="intro">中秋当天上午入住花都炭步,白天用一整个下午泡在两座明清古村里,傍晚回酒店吃团圆饭赏月,入夜再去塱头村赴一场绵延上千年的非遗民俗——烧禾楼。这一天把古村人文、中秋团圆和本地民俗压缩在花都西部这一小片地方,不用赶远路。</p>
+
+  <div class="stats">
+    <div class="stat-row"><span class="k">日期</span><span class="v">2026 年 9 月 25 日 · 中秋当天(周五)</span></div>
+    <div class="stat-row"><span class="k">入住</span><span class="v">铂尔顿酒店(炭步宜多购物广场店)10:00 起</span></div>
+    <div class="stat-row"><span class="k">活动范围</span><span class="v">酒店步行 / 短驳可达,不用长途转场</span></div>
+    <div class="stat-row"><span class="k">今日压轴</span><span class="v">塱头村烧禾楼 · 约 20:00 点火</span></div>
+  </div>
+
+  <section>
+    <h2>动线速览</h2>
+    <div class="route-box">
+      <svg viewBox="0 0 820 170" style="width:100%;min-width:640px;height:auto;display:block;">
+        <path d="M 40 100 C 160 40, 220 150, 340 100 S 480 40, 600 100 S 720 150, 780 100" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="1 12" stroke-linecap="round"/>
+        <circle cx="40" cy="100" r="8" fill="var(--accent)"/>
+        <text x="40" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">酒店</text>
+        <text x="40" y="150" text-anchor="middle" font-size="11" fill="var(--muted)">10:00 入住</text>
+        <circle cx="270" cy="100" r="8" fill="var(--accent2)"/>
+        <text x="270" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">塱头古村</text>
+        <text x="270" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">步行可达</text>
+        <circle cx="490" cy="100" r="8" fill="var(--accent2)"/>
+        <text x="490" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">藏书院村</text>
+        <text x="490" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">车程约 10 分钟</text>
+        <circle cx="650" cy="100" r="8" fill="var(--accent)"/>
+        <text x="650" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">酒店 / 宜多广场</text>
+        <text x="650" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">傍晚团圆饭</text>
+        <circle cx="780" cy="100" r="9" fill="var(--fire)"/>
+        <text x="780" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="var(--fire)">塱头村</text>
+        <text x="780" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">20:00 烧禾楼</text>
+      </svg>
+      <p class="route-note">全程围绕酒店打一个小圈:白天两座古村都在骑车或短驳车十几分钟范围内,傍晚回酒店周边吃饭休整,天黑再折返塱头村看烧禾楼,不走回头长路。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>全天时间线</h2>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-time">10:00</div><div class="tl-title">入住铂尔顿酒店(炭步宜多购物广场店)</div><div class="tl-desc">放下行李,前台顺便问一句今年各村烧禾楼的具体点位和时间,民间活动每年略有出入。</div></div>
+      <div class="tl-row"><div class="tl-time">10:30–11:00</div><div class="tl-title">步行 / 短驳前往塱头古村</div><div class="tl-desc">酒店本就在塱头路附近,离塱头古村很近,慢慢走过去当热身。</div></div>
+      <div class="tl-row"><div class="tl-time">11:00–13:00</div><div class="tl-title">塱头古村深度游</div><div class="tl-desc">651 年历史的岭南古村,近 200 座明清青砖建筑,重点看升平人瑞牌坊、青云桥、红棉树和成片的祠堂书室,巷子多,慢慢逛。</div></div>
+      <div class="tl-row"><div class="tl-time">13:00–14:00</div><div class="tl-title">午餐:本地农家菜</div><div class="tl-desc">古村附近找一家农家菜馆,点一份炭步槟榔香芋做的菜(香芋扣肉或香芋煲),配河粉或白切鸡,分量足够撑到晚上。</div></div>
+      <div class="tl-row"><div class="tl-time">14:00–15:00</div><div class="tl-title">回酒店午休</div><div class="tl-desc">九月底花都中午仍偏热,回房间避开日头,养足精神留给晚上的重头戏。</div></div>
+      <div class="tl-row"><div class="tl-time">15:00–16:30</div><div class="tl-title">藏书院古村</div><div class="tl-desc">比塱头古村小而安静,梳式布局、村头村尾各一座炮楼,后山种满防护竹篱,游人少,适合慢慢拍照发呆。</div></div>
+      <div class="tl-row"><div class="tl-time">16:30–17:30</div><div class="tl-title">宜多购物广场补给</div><div class="tl-desc">回酒店楼下的购物广场逛逛,买应节的月饼、柚子和田螺,给晚上的团圆饭和拜月加点仪式感。</div></div>
+      <div class="tl-row"><div class="tl-time">17:30–19:00</div><div class="tl-title">中秋团圆晚饭</div><div class="tl-desc">酒店附近找一家像样的馆子吃顿正式的,烧鹅、河粉、腊味任选,给中秋当天一顿完整的团圆饭。</div></div>
+      <div class="tl-row"><div class="tl-time">19:00–20:00</div><div class="tl-title">前往塱头村,占个好位置</div><div class="tl-desc">从酒店步行或短驳回塱头村,烧禾楼是全镇性的活动,人多热闹,提前到场找个离塔有安全距离又看得清楚的位置。</div></div>
+      <div class="tl-row highlight"><div class="tl-time">20:00–21:30</div><div class="tl-title">烧禾楼:今晚的高潮</div><div class="tl-desc">村民往砖砌的禾楼里点燃柴火干草,往火上撒粗盐,盐粒爆裂迸出火花,长竹竿一撩,火光冲天。这项习俗相传起于元末,寓意来年日子越烧越旺。</div></div>
+      <div class="tl-row"><div class="tl-time">21:30–22:00</div><div class="tl-title">赏月散场,返回酒店</div><div class="tl-desc">火势渐弱后随人流慢慢往回走,顺路抬头看一眼中秋满月,结束这一天。</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>看点分类</h2>
+    <div class="cards">
+      <div class="card feature">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21 c4-3 6-6 6-9 a6 6 0 0 0-12 0 c0 3 2 6 6 9 Z"/><path d="M12 15 c1.5-1.5 2-3 2-4 a2 2 0 0 0-4 0 c0 1 .5 2.5 2 4 Z"/></svg>非遗民俗 · 今日主角</div>
+        <h3>塱头村烧禾楼</h3>
+        <p>炭步镇绵延上千年的中秋传统,砖塔起火、撒盐迸星,火光越旺寓意来年越红火,是全镇性的中秋夜活动,塱头村是主要举办点之一。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M3 10 L12 3 L21 10"/><rect x="10" y="14" width="4" height="7"/></svg>人文古建</div>
+        <h3>塱头古村</h3>
+        <p>广东现存规模最大的古村落之一,中国历史文化名村,牌坊、青云桥、祠堂书院成片保留,是花都最厚重的一处人文切片。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M8 6 V4 h8 v2 M4 12 h16"/></svg>清幽古村</div>
+        <h3>藏书院古村</h3>
+        <p>谭姓聚居近 400 年的小村,梳式布局配双炮楼,游人稀少,和热闹的塱头古村形成一动一静的对照。</p>
+      </div>
+      <div class="card">
+        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 v18 M5 8 h14 M5 16 h14"/></svg>补给购物</div>
+        <h3>宜多购物广场</h3>
+        <p>酒店楼下就是,午休后和晚饭前顺路买齐月饼、水果和日用补给,不用额外跑路。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>中秋吃食清单</h2>
+    <div class="cols">
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3 a9 9 0 0 0 0 18 a7 7 0 0 1 0-18"/></svg>应节必吃</h3>
+        <ul>
+          <li>月饼:团圆饭后配茶吃一块</li>
+          <li>柚子:中秋前后本地当季</li>
+          <li>田螺:广府中秋"啜田螺"的老习俗</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 C8 3 6 6 6 9 c0 4 3 6 3 9 h6 c0-3 3-5 3-9 c0-3-2-6-6-6Z"/></svg>本地特产</h3>
+        <ul>
+          <li>炭步槟榔香芋:国家地理标志产品</li>
+          <li>香芋扣肉 / 香芋煲:午餐首选</li>
+          <li>手信可打包一份带回程</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M6 3 v18 M6 3 h9 a3 3 0 0 1 0 6 H6"/></svg>家常正餐</h3>
+        <ul>
+          <li>烧鹅、河粉:团圆饭常见搭配</li>
+          <li>腊味:入秋后本地餐馆多有供应</li>
+          <li>白切鸡:配姜葱蘸料,清淡收尾</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>实用提醒</h2>
+    <div class="cols">
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 21 s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>看烧禾楼</h3>
+        <ul>
+          <li>提前到场占位,离塔保持安全距离</li>
+          <li>火星四溅,穿长裤长袖更保险</li>
+          <li>带小孩需全程牵好,勿靠近塔口</li>
+          <li>具体点火时间以当年村里公告为准</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9 h18 M8 4 v5"/></svg>出行与住宿</h3>
+        <ul>
+          <li>中秋假期建议自驾,导航"塱头古村"</li>
+          <li>酒店离塱头路很近,步行动线为主</li>
+          <li>提前 1–2 周预订酒店,中秋假期紧俏</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6 v6 l4 2"/></svg>天气与穿着</h3>
+        <ul>
+          <li>九月底花都白天仍偏热,注意防晒</li>
+          <li>入夜看烧禾楼备一件薄外套</li>
+          <li>古村路面不平,穿舒适平底鞋</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8 v5 M12 16.2 v0.1"/></svg>
+    <p style="margin:0;">烧禾楼由各村自发组织,具体举办的村庄、点火时间每年略有不同,建议出发前或抵达当天向酒店前台、当地文旅公众号确认最新安排;古村参观与活动现场请注意用火安全和文物保护,不擅自攀爬或触碰建筑构件。</p>
+  </div>
+</div>
+</body>
+</html>
