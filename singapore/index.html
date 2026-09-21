@@ -3,158 +3,834 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新加坡 · 旅行记录</title>
-<meta name="description" content="广州出发、两天一晚的新加坡人文与科技快闪游:新加坡国立大学、one-north 科技走廊、艺术科学博物馆与星耀樟宜,一份紧凑可执行的行程。">
+<title>新加坡 48H</title>
+<meta name="description" content="广州出发，两天一夜的新加坡人文与科技行程，含新加坡国立大学（NUS）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--paper:#f4f1e9;--ink:#241f18;--muted:#6f6757;--line:#ddd6c7;--accent:#9c5533;--accent2:#4b6b4f;}
-  @media (prefers-color-scheme:dark){
-    :root{--paper:#17150f;--ink:#eae5d7;--muted:#968f7e;--line:#332f26;--accent:#d08a5f;--accent2:#7fae82;}
+  :root {
+    --font-display: 'Fraunces', 'Songti SC', 'STSong', serif;
+    --font-body: 'IBM Plex Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', 'Consolas', monospace;
+
+    --paper: #E9EEE7;
+    --surface: #FBFCF9;
+    --surface-2: #F1F5EE;
+    --border: #D7DECE;
+    --ink: #13241F;
+    --ink-soft: #54635A;
+    --ink-faint: #8B978D;
+
+    --accent: #0E7A67;
+    --accent-soft: #DCEEE9;
+    --gold: #A8761E;
+    --gold-soft: #F5E9D1;
+    --purple: #7E3AA0;
+    --purple-soft: #EEE0F5;
+    --blue: #1D5FA8;
+    --blue-soft: #DEEAF6;
+    --green: #217A46;
+    --green-soft: #E0EFE3;
+
+    --radius-s: 4px;
+    --radius-m: 10px;
+    --radius-l: 16px;
+    --shadow: 0 2px 14px rgba(19,36,31,0.07);
+
+    color-scheme: light dark;
   }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--paper);color:var(--ink);
-       font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-       line-height:1.85;}
-  .wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px;}
-  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;
-        letter-spacing:.08em;margin-bottom:32px;}
-  .back:hover{color:var(--accent);}
-  h1{font-size:clamp(30px,6vw,44px);font-weight:800;letter-spacing:-.01em;
-     line-height:1.15;margin:0 0 10px;}
-  .meta{color:var(--muted);font-size:13px;letter-spacing:.06em;margin-bottom:28px;}
-  .intro{font-size:15px;color:var(--ink);margin-bottom:36px;max-width:56ch;}
-  h2{font-size:20px;font-weight:700;letter-spacing:-.005em;margin:0 0 16px;color:var(--accent);}
-  section{margin-bottom:48px;}
-  .stats{border-top:1px solid var(--line);margin-bottom:48px;}
-  .stat-row{display:flex;justify-content:space-between;gap:16px;
-             padding:12px 2px;border-bottom:1px solid var(--line);font-size:14px;}
-  .stat-row .k{color:var(--muted);}
-  .stat-row .v{font-weight:700;text-align:right;}
-  .icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;
-        stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-  .day-label{display:inline-flex;align-items:center;gap:8px;color:var(--accent);
-             font-size:13px;font-weight:700;letter-spacing:.08em;margin:0 0 14px;}
-  .tl{border-top:1px solid var(--line);}
-  .tl-row{display:grid;grid-template-columns:96px 1fr;gap:2px 16px;
-          padding:16px 2px;border-bottom:1px solid var(--line);}
-  .tl-time{font-size:13px;font-weight:700;color:var(--accent);padding-top:1px;}
-  .tl-title{font-size:15px;font-weight:700;}
-  .tl-desc{grid-column:2;font-size:13.5px;color:var(--muted);margin-top:2px;}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-  .card{border:1px solid var(--line);padding:20px;}
-  .card .tag{display:flex;align-items:center;gap:6px;color:var(--accent2);
-              font-size:11.5px;font-weight:700;letter-spacing:.06em;margin-bottom:10px;}
-  .card h3{font-size:16px;font-weight:700;margin:0 0 8px;}
-  .card p{font-size:13.5px;color:var(--muted);margin:0;}
-  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
-  .col h3{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;margin:0 0 10px;}
-  .col ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:2;}
-  .note{border:1px solid var(--line);padding:20px;font-size:13px;color:var(--muted);
-        display:flex;gap:10px;align-items:flex-start;}
-  .note .icon{margin-top:2px;color:var(--accent);}
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0A1815;
+      --surface: #0F211C;
+      --surface-2: #132922;
+      --border: #223B33;
+      --ink: #E7EFE8;
+      --ink-soft: #9FB3A8;
+      --ink-faint: #6C8078;
+
+      --accent: #3ECDAD;
+      --accent-soft: #123B33;
+      --gold: #E7A93F;
+      --gold-soft: #2E2415;
+      --purple: #C583E0;
+      --purple-soft: #2B1E33;
+      --blue: #78B0E4;
+      --blue-soft: #16283A;
+      --green: #67CE90;
+      --green-soft: #123322;
+
+      --shadow: 0 2px 20px rgba(0,0,0,0.45);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #0A1815;
+    --surface: #0F211C;
+    --surface-2: #132922;
+    --border: #223B33;
+    --ink: #E7EFE8;
+    --ink-soft: #9FB3A8;
+    --ink-faint: #6C8078;
+
+    --accent: #3ECDAD;
+    --accent-soft: #123B33;
+    --gold: #E7A93F;
+    --gold-soft: #2E2415;
+    --purple: #C583E0;
+    --purple-soft: #2B1E33;
+    --blue: #78B0E4;
+    --blue-soft: #16283A;
+    --green: #67CE90;
+    --green-soft: #123322;
+
+    --shadow: 0 2px 20px rgba(0,0,0,0.45);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { background: var(--paper); }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding-block: 3rem;
+  }
+
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .ticket {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-inline: 1.25rem;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+  .back:hover { color: var(--accent); }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* ---------- Boarding pass hero ---------- */
+
+  .boarding-pass {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .bp-main {
+    flex: 1;
+    min-width: 0;
+    padding: 2rem 2rem 1.75rem;
+  }
+
+  .bp-route {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  .bp-route .code { color: var(--ink); font-weight: 600; }
+  .bp-route .arrow { color: var(--accent); }
+
+  .bp-main h1 {
+    font-size: clamp(2.1rem, 7vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .bp-main .subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.4rem;
+  }
+
+  .bp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .bp-meta strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .bp-meta .label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+  }
+
+  .bp-stub {
+    width: 108px;
+    flex-shrink: 0;
+    border-left: 1px dashed var(--border);
+    background: var(--surface-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0 1.25rem;
+  }
+
+  .bp-stub .stub-label {
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  .bp-stub .barcode {
+    width: 58px;
+    height: 80px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--ink) 0px, var(--ink) 2px,
+      transparent 2px, transparent 5px
+    );
+    opacity: 0.55;
+  }
+
+  .egg-note {
+    margin-top: 1.25rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .egg-note .mark { color: var(--gold); font-weight: 600; }
+
+  /* ---------- Legend ---------- */
+
+  .legend {
+    margin-top: 1.75rem;
+  }
+
+  .legend .legend-caption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.65rem;
+  }
+
+  .legend-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: var(--radius-s);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .chip .sw {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .chip b { font-weight: 600; }
+  .chip span.zh { font-family: var(--font-body); color: var(--ink-soft); }
+
+  .sw-tech, .dot-tech { background: var(--blue); }
+  .sw-culture, .dot-culture { background: var(--purple); }
+  .sw-food, .dot-food { background: var(--gold); }
+  .sw-nature, .dot-nature { background: var(--green); }
+
+  /* ---------- Day sections ---------- */
+
+  .day-section { margin-top: 2.75rem; }
+
+  .day-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .day-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .day-head .day-titles { min-width: 0; }
+
+  .day-head .eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.15rem;
+  }
+
+  .day-head h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .line {
+    list-style: none;
+    position: relative;
+    padding-left: 1.6rem;
+  }
+
+  .line::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .stop { position: relative; margin-bottom: 1.1rem; }
+  .stop:last-child { margin-bottom: 0; }
+
+  .stop .dot {
+    position: absolute;
+    left: -1.6rem;
+    top: 0.85rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--paper);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: var(--radius-m);
+    padding: 1rem 1.2rem;
+  }
+
+  .card.tech { border-left-color: var(--blue); }
+  .card.culture { border-left-color: var(--purple); }
+  .card.food { border-left-color: var(--gold); }
+  .card.nature { border-left-color: var(--green); }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .card h3 { font-size: 1rem; font-weight: 600; font-family: var(--font-body); }
+
+  .card .time {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+    max-width: 42em;
+  }
+
+  .card .chips { margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .card .chips .chip { font-size: 0.7rem; padding: 0.2rem 0.45rem; }
+
+  .card .tip {
+    margin-top: 0.55rem;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-style: italic;
+  }
+
+  .safdie {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+
+  /* ---------- Interchange divider ---------- */
+
+  .interchange {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin: 2.25rem 0;
+  }
+
+  .interchange .rule { flex: 1; height: 1px; background: var(--border); }
+
+  .interchange .badge-cluster { display: flex; align-items: center; }
+
+  .interchange .badge-cluster span {
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 2px solid var(--paper);
+    margin-left: -4px;
+  }
+  .interchange .badge-cluster span:first-child { margin-left: 0; }
+
+  .interchange .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* ---------- Practical info stub ---------- */
+
+  .stub-card {
+    position: relative;
+    margin-top: 3rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    padding: 1.75rem 1.75rem 1.5rem;
+  }
+
+  .stub-card::before {
+    content: '';
+    position: absolute;
+    top: -9px; left: -9px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--paper);
+  }
+  .stub-card::after {
+    content: '';
+    position: absolute;
+    top: -9px; right: -9px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--paper);
+  }
+
+  .stub-card .perf {
+    position: absolute;
+    top: 0; left: 14px; right: 14px;
+    height: 0;
+    border-top: 1px dashed var(--border);
+  }
+
+  .stub-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-top: 0.4rem;
+  }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .checklist li {
+    display: flex;
+    gap: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  .checklist .k {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+    width: 3.2em;
+  }
+
+  .checklist .v { color: var(--ink-soft); }
+  .checklist .v b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Footer ---------- */
+
+  footer.ticket-foot {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  footer.ticket-foot .brand {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+
+  footer.ticket-foot .foot-barcode {
+    width: 90px;
+    height: 18px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--ink-faint) 0px, var(--ink-faint) 1px,
+      transparent 1px, transparent 3px
+    );
+    opacity: 0.5;
+  }
+
+  @media (max-width: 620px) {
+    body { padding-block: 1.75rem; }
+    .boarding-pass { flex-direction: column; }
+    .bp-stub {
+      width: auto;
+      flex-direction: row;
+      border-left: none;
+      border-top: 1px dashed var(--border);
+      padding: 1rem 1.5rem;
+      justify-content: space-between;
+    }
+    .bp-stub .stub-label { writing-mode: horizontal-tb; }
+    .bp-stub .barcode { width: 80px; height: 32px; }
+    .bp-main { padding: 1.6rem 1.5rem 1.4rem; }
+    .bp-main h1 { font-size: 2rem; }
+    .interchange .label { font-size: 0.66rem; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <a class="back" href="../">← 全部游记</a>
-  <h1>新加坡</h1>
-  <div class="meta">新加坡 · 两天一晚快闪 · 广州出发</div>
-  <p class="intro">从广州直飞新加坡,飞行时间约四小时,周末就能往返。这份行程把新加坡国立大学(NUS)的校园人文、one-north 与星耀樟宜的未来科技、老城的多元文化街区压缩进两天一晚,不追景点数量,只求看透"花园城市"人文与科技交织的两面。</p>
+  <div class="ticket">
 
-  <div class="stats">
-    <div class="stat-row"><span class="k">出发 / 目的地</span><span class="v">广州白云 → 新加坡樟宜</span></div>
-    <div class="stat-row"><span class="k">飞行时长</span><span class="v">约 4 小时</span></div>
-    <div class="stat-row"><span class="k">行程天数</span><span class="v">两天一晚</span></div>
-    <div class="stat-row"><span class="k">签证</span><span class="v">中新互免签证协议(2024 年 2 月起),普通护照免签停留最长 30 天</span></div>
-    <div class="stat-row"><span class="k">货币 / 汇率</span><span class="v">新加坡元(SGD),刷卡与 Grab Pay 通行,小贩中心备点现金</span></div>
-    <div class="stat-row"><span class="k">时差</span><span class="v">与北京时间相同,无时差</span></div>
+    <a class="back" href="../">← 全部游记</a>
+
+    <header class="boarding-pass">
+      <div class="bp-main">
+        <div class="bp-route">
+          <span class="code">CAN 广州</span>
+          <span class="arrow">✈</span>
+          <span class="code">SIN 新加坡</span>
+        </div>
+        <h1>新加坡 48H</h1>
+        <p class="subtitle">人文 × 科技 —— 从肯特岗校园到滨海未来城</p>
+        <div class="bp-meta">
+          <div>
+            <span class="label">Duration</span>
+            <strong>2 Days · 1 Night</strong>
+          </div>
+          <div>
+            <span class="label">Flight</span>
+            <strong>CAN–SIN ≈ 4h</strong>
+          </div>
+          <div>
+            <span class="label">Carrier</span>
+            <strong>南航 / 新航直飞</strong>
+          </div>
+          <div>
+            <span class="label">For</span>
+            <strong>象哥专属</strong>
+          </div>
+        </div>
+        <p class="egg-note"><span class="mark">◆ 建筑彩蛋</span> —— 这条行程会与建筑师 Moshe Safdie 的作品相遇三次：艺术科学博物馆、金沙滨海湾、樟宜星耀。留意 <span class="mark">◆ SAFDIE</span> 标记。</p>
+      </div>
+      <div class="bp-stub">
+        <span class="stub-label">Boarding Pass</span>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <nav class="legend" aria-label="行程分类图例">
+      <p class="legend-caption">按新加坡地铁配色，编码本行程 4 种体验</p>
+      <div class="legend-row">
+        <span class="chip"><span class="sw sw-tech"></span><b>DT</b><span class="zh">科技</span></span>
+        <span class="chip"><span class="sw sw-culture"></span><b>NE</b><span class="zh">人文</span></span>
+        <span class="chip"><span class="sw sw-food"></span><b>FD</b><span class="zh">美食</span></span>
+        <span class="chip"><span class="sw sw-nature"></span><b>EW</b><span class="zh">自然 / 绿色科技</span></span>
+      </div>
+    </nav>
+
+    <main>
+
+      <section class="day-section">
+        <div class="day-head">
+          <div class="day-badge mono">D1</div>
+          <div class="day-titles">
+            <span class="eyebrow">Day 01 · Campus → Coastline</span>
+            <h2>校园到海岸线</h2>
+          </div>
+        </div>
+
+        <ol class="line">
+
+          <li class="stop">
+            <span class="dot" style="background:var(--ink-faint)"></span>
+            <div class="card">
+              <div class="card-top">
+                <h3>抵达樟宜机场</h3>
+                <span class="time mono">09:00</span>
+              </div>
+              <p>广州直飞约 4 小时。入境后搭地铁东西线（EW）机场支线转乘往肯特岗方向，车程约 45 分钟——樟宜本身也是这趟旅程遇到的第一个科技地标。</p>
+              <p class="tip">→ 星耀樟宜的雨漩涡留到回程压轴</p>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-tech"></span>
+            <div class="card tech">
+              <div class="card-top">
+                <h3>新加坡国立大学 NUS</h3>
+                <span class="time mono">10:30–13:00</span>
+              </div>
+              <p>亚洲顶尖学府，校园沿肯特岗地势铺展。重点走 University Town（书院制教育样本）、School of Computing（亚洲计算机科学重镇）与中央图书馆；校内免费穿梭巴士随上随下。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-tech"></span><b>DT</b></span>
+                <span class="chip"><span class="sw sw-culture"></span><b>NE</b></span>
+              </div>
+              <p class="tip">→ 午饭在 The Deck 或 Fine Food 食阁，尝本地学生的日常一餐</p>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-tech"></span>
+            <div class="card tech">
+              <div class="card-top">
+                <h3>one-north 科技走廊</h3>
+                <span class="time mono">13:30–14:30</span>
+              </div>
+              <p>循环线（CC）一站直达。Fusionopolis（信通研发）与 Biopolis（生物医药）在此聚集，是新加坡自己的"硅谷"——建筑形态本身就是未来感的样板。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-tech"></span><b>DT</b></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-tech"></span>
+            <div class="card tech">
+              <div class="card-top">
+                <h3>ArtScience Museum 艺术科学博物馆</h3>
+                <span class="time mono">15:00–17:30</span>
+              </div>
+              <p>莲花造型建筑，出自建筑师 Moshe Safdie。常设展"Future World"由 teamLab 打造——沉浸式数字艺术空间，科技与人文在这里第一次真正合流。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-tech"></span><b>DT</b></span>
+                <span class="chip"><span class="sw sw-culture"></span><b>NE</b></span>
+              </div>
+              <p class="tip">→ 门票建议官网提前买，现场排队常超 30 分钟</p>
+              <span class="safdie">◆ SAFDIE · 相遇 1/3</span>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-food"></span>
+            <div class="card food">
+              <div class="card-top">
+                <h3>滨海湾漫步 + Lau Pa Sat 晚餐</h3>
+                <span class="time mono">18:00–19:30</span>
+              </div>
+              <p>沿滨海湾步道走一段，鱼尾狮与金沙天际线同框。老巴刹（Lau Pa Sat）是 1894 年的铸铁维多利亚建筑，如今是沙爹与海南鸡饭的夜市——转身就是同一位建筑师的另一件作品：金沙酒店。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-food"></span><b>FD</b></span>
+              </div>
+              <span class="safdie">◆ SAFDIE · 相遇 2/3（远观金沙）</span>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-nature"></span>
+            <div class="card nature">
+              <div class="card-top">
+                <h3>Gardens by the Bay 超级树光影秀</h3>
+                <span class="time mono">19:45 / 20:45</span>
+              </div>
+              <p>Supertree Grove 每晚固定两场灯光音乐秀，免费（以官网当日为准）。18 棵 25–50 米高的"超级树"兼作垂直花园、太阳能集热器与雨水收集系统——一次绿色工程的展示。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-nature"></span><b>EW</b></span>
+              </div>
+              <p class="tip">→ OCBC Skyway 空中步道视野更好，19:30 前上去占位</p>
+            </div>
+          </li>
+
+        </ol>
+      </section>
+
+      <div class="interchange">
+        <div class="rule"></div>
+        <div class="badge-cluster" aria-hidden="true">
+          <span style="background:var(--green)"></span>
+          <span style="background:var(--gold)"></span>
+          <span style="background:var(--blue)"></span>
+        </div>
+        <span class="label">Interchange · 入住休息，明日换乘</span>
+        <div class="rule"></div>
+      </div>
+
+      <section class="day-section">
+        <div class="day-head">
+          <div class="day-badge mono">D2</div>
+          <div class="day-titles">
+            <span class="eyebrow">Day 02 · Museum → Future Airport</span>
+            <h2>博物馆到未来机场</h2>
+          </div>
+        </div>
+
+        <ol class="line">
+
+          <li class="stop">
+            <span class="dot dot-culture"></span>
+            <div class="card culture">
+              <div class="card-top">
+                <h3>新加坡国家博物馆</h3>
+                <span class="time mono">09:30–11:30</span>
+              </div>
+              <p>新加坡最古老的博物馆，前身可追溯至 1887 年的莱佛士图书馆与博物馆。圆顶下的"新加坡历史馆"用多媒体叙事讲完从殖民时代到建国的全过程，是理解这座城市国家最快的入口。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-culture"></span><b>NE</b></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-culture"></span>
+            <div class="card culture">
+              <div class="card-top">
+                <h3>甘榜格南 Kampong Glam</h3>
+                <span class="time mono">11:45–13:30</span>
+              </div>
+              <p>马来—阿拉伯文化街区，苏丹回教堂的金色穹顶是地标。Haji Lane 是新加坡最窄的巷子，墙面涂鸦与独立小店密集；Arab Street 一带适合吃一顿马来—中东融合餐。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-culture"></span><b>NE</b></span>
+                <span class="chip"><span class="sw sw-food"></span><b>FD</b></span>
+              </div>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-tech"></span>
+            <div class="card tech">
+              <div class="card-top">
+                <h3>新加坡科学中心</h3>
+                <span class="time mono">14:00–16:00</span>
+              </div>
+              <p>裕廊东的互动科学馆，物理、生态、机器人展区都能上手体验；旁边的 Omni-Theatre 是东南亚少见的球幕数字天象厅。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-tech"></span><b>DT</b></span>
+              </div>
+              <p class="tip">→ 从市区坐地铁约 30 分钟，直达 Jurong East</p>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot dot-tech"></span>
+            <div class="card tech">
+              <div class="card-top">
+                <h3>星耀樟宜 Jewel Changi Airport</h3>
+                <span class="time mono">17:00–19:00</span>
+              </div>
+              <p>登机前的压轴：40 米高的室内瀑布"雨漩涡"，是全球最高的室内瀑布；星空花园的天悬桥与迷宫环绕四周。同样出自 Safdie Architects——整趟旅程的第三次相遇。</p>
+              <div class="chips">
+                <span class="chip"><span class="sw sw-tech"></span><b>DT</b></span>
+                <span class="chip"><span class="sw sw-nature"></span><b>EW</b></span>
+              </div>
+              <p class="tip">→ 雨漩涡灯光秀每晚整点一场，值得等一等</p>
+              <span class="safdie">◆ SAFDIE · 相遇 3/3</span>
+            </div>
+          </li>
+
+          <li class="stop">
+            <span class="dot" style="background:var(--ink-faint)"></span>
+            <div class="card">
+              <div class="card-top">
+                <h3>返程 · 新加坡 → 广州</h3>
+                <span class="time mono">20:00+</span>
+              </div>
+              <p>樟宜机场 T1–T4 都有飞广州的晚班直飞，飞行约 4 小时。</p>
+            </div>
+          </li>
+
+        </ol>
+      </section>
+
+    </main>
+
+    <section class="stub-card">
+      <div class="perf" aria-hidden="true"></div>
+      <h3>行前备忘</h3>
+      <ul class="checklist">
+        <li><span class="k">签证</span><span class="v">中新互免签证协议（2024 年 2 月起）：<b>持普通护照可免签停留最长 30 天</b>，出行前仍建议在新加坡 ICA 官网核实当期政策。</span></li>
+        <li><span class="k">交通</span><span class="v">买一张 <b>EZ-Link</b> 卡（类似羊城通），地铁、公交、部分小贩中心通用；也支持银行卡拍卡。</span></li>
+        <li><span class="k">货币</span><span class="v">新加坡元 <b>SGD</b>，大部分场所支持刷卡 / Grab Pay，小贩中心备一点现金更稳妥。</span></li>
+        <li><span class="k">天气</span><span class="v">全年 <b>25–32°C</b>，湿热多阵雨，随身带一把折叠伞。</span></li>
+        <li><span class="k">网络</span><span class="v">建议买当地 <b>SIM / eSIM</b> 或开通国际漫游，Google Maps 是刚需。</span></li>
+        <li><span class="k">住宿</span><span class="v">推荐 <b>Marina Bay</b> 或 <b>Bugis</b> 一带，去哪都在地铁一站两站的距离。</span></li>
+      </ul>
+    </section>
+
+    <footer class="ticket-foot">
+      <span class="brand">象哥出行 · SIN-48H · 人文与科技之旅</span>
+      <div class="foot-barcode" aria-hidden="true"></div>
+    </footer>
+
   </div>
-
-  <section>
-    <div class="day-label"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3 v4 M16 3 v4 M3 10 h18"/></svg>DAY 1 · 校园到海岸线</div>
-    <div class="tl">
-      <div class="tl-row"><div class="tl-time">09:00</div><div class="tl-title">抵达樟宜机场</div><div class="tl-desc">广州直飞约 4 小时,入境后搭地铁东西线机场支线转乘往肯特岗方向,车程约 45 分钟,樟宜本身就是这趟旅程遇到的第一个科技地标。</div></div>
-      <div class="tl-row"><div class="tl-time">10:30–13:00</div><div class="tl-title">新加坡国立大学 NUS</div><div class="tl-desc">亚洲顶尖学府,校园沿肯特岗地势铺展。重点走 University Town(书院制教育样本)、School of Computing(亚洲计算机科学重镇)与中央图书馆,校内免费穿梭巴士随上随下,午饭在 The Deck 或 Fine Food 食阁,尝本地学生的日常一餐。</div></div>
-      <div class="tl-row"><div class="tl-time">13:30–14:30</div><div class="tl-title">one-north 科技走廊</div><div class="tl-desc">循环线一站直达。Fusionopolis(信通研发)与 Biopolis(生物医药)在此聚集,是新加坡自己的"硅谷",建筑形态本身就是未来感的样板。</div></div>
-      <div class="tl-row"><div class="tl-time">15:00–17:30</div><div class="tl-title">ArtScience Museum 艺术科学博物馆</div><div class="tl-desc">莲花造型建筑,出自建筑师 Moshe Safdie。常设展"Future World"由 teamLab 打造,沉浸式数字艺术空间,科技与人文在这里第一次真正合流,门票建议官网提前买。</div></div>
-      <div class="tl-row"><div class="tl-time">18:00–19:30</div><div class="tl-title">滨海湾漫步 + Lau Pa Sat 晚餐</div><div class="tl-desc">沿滨海湾步道走一段,鱼尾狮与金沙天际线同框。老巴刹是 1894 年的铸铁维多利亚建筑,如今是沙爹与海南鸡饭的夜市,转身就是金沙酒店,同一位建筑师的另一件作品。</div></div>
-      <div class="tl-row"><div class="tl-time">19:45 / 20:45</div><div class="tl-title">Gardens by the Bay 超级树光影秀</div><div class="tl-desc">Supertree Grove 每晚固定两场灯光音乐秀,免费(以官网当日为准)。18 棵 25–50 米高的"超级树"兼作垂直花园、太阳能集热器与雨水收集系统,一次绿色工程的展示。</div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="day-label"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3 v4 M16 3 v4 M3 10 h18"/></svg>DAY 2 · 博物馆到未来机场</div>
-    <div class="tl">
-      <div class="tl-row"><div class="tl-time">09:30–11:30</div><div class="tl-title">新加坡国家博物馆</div><div class="tl-desc">新加坡最古老的博物馆,前身可追溯至 1887 年的莱佛士图书馆与博物馆。圆顶下的"新加坡历史馆"用多媒体叙事讲完从殖民时代到建国的全过程,是理解这座城市国家最快的入口。</div></div>
-      <div class="tl-row"><div class="tl-time">11:45–13:30</div><div class="tl-title">甘榜格南 Kampong Glam</div><div class="tl-desc">马来—阿拉伯文化街区,苏丹回教堂的金色穹顶是地标。Haji Lane 是新加坡最窄的巷子,墙面涂鸦与独立小店密集,Arab Street 一带适合吃一顿马来—中东融合餐。</div></div>
-      <div class="tl-row"><div class="tl-time">14:00–16:00</div><div class="tl-title">新加坡科学中心</div><div class="tl-desc">裕廊东的互动科学馆,物理、生态、机器人展区都能上手体验,旁边的 Omni-Theatre 是东南亚少见的球幕数字天象厅,从市区坐地铁约 30 分钟直达。</div></div>
-      <div class="tl-row"><div class="tl-time">17:00–19:00</div><div class="tl-title">星耀樟宜 Jewel Changi Airport</div><div class="tl-desc">登机前的压轴,40 米高的室内瀑布"雨漩涡"是全球最高的室内瀑布,星空花园的天悬桥与迷宫环绕四周,同样出自 Safdie Architects,灯光秀每晚整点一场,值得等一等。</div></div>
-      <div class="tl-row"><div class="tl-time">20:00+</div><div class="tl-title">返程 · 新加坡 → 广州</div><div class="tl-desc">樟宜机场 T1–T4 都有飞广州的晚班直飞,飞行约 4 小时。</div></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>看点分类</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21 h18 M5 21 V9 l7-5 7 5 v12"/><path d="M9 21 v-6 h6 v6"/></svg>人文</div>
-        <h3>新加坡国立大学 · 国家博物馆 · 甘榜格南</h3>
-        <p>从亚洲顶尖学府到殖民时代博物馆,再到马来—阿拉伯文化街区,一天内看完新加坡人文脉络的三个切面。</p>
-      </div>
-      <div class="card">
-        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 3 v4 M12 17 v4 M3 12 h4 M17 12 h4"/></svg>科技</div>
-        <h3>one-north · 艺术科学博物馆 · 科学中心</h3>
-        <p>新加坡自己的"硅谷"、teamLab 数字艺术与互动科学馆,科技不只是参观对象,而是这座城市的日常底色。</p>
-      </div>
-      <div class="card">
-        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 13 c1.5 2 6.5 2 8 0"/><circle cx="9" cy="10" r="0.8" fill="currentColor"/><circle cx="15" cy="10" r="0.8" fill="currentColor"/></svg>美食</div>
-        <h3>老巴刹沙爹 · 海南鸡饭 · 马来融合餐</h3>
-        <p>维多利亚铸铁市场里的本地夜市,配上甘榜格南的马来—中东融合料理,两顿饭吃遍新加坡的移民味觉。</p>
-      </div>
-      <div class="card">
-        <div class="tag"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21 s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>绿色工程</div>
-        <h3>超级树光影秀 · 星耀樟宜雨漩涡</h3>
-        <p>垂直花园兼太阳能与雨水系统的超级树,加上全球最高的室内瀑布,是新加坡把自然与工程拧成一股绳的两处样板。</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>实用信息</h2>
-    <div class="cols">
-      <div class="col">
-        <h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9 h18 M8 4 v5"/></svg>签证与证件</h3>
-        <ul>
-          <li>持普通护照享中新互免签,最长停留 30 天</li>
-          <li>出行前建议在新加坡 ICA 官网核实当期政策</li>
-          <li>护照有效期需 6 个月以上</li>
-          <li>入境卡可提前在线填写(SG Arrival Card)</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7 v10 M9 9.5 h6 M9 14.5 h6"/></svg>钱与通信</h3>
-        <ul>
-          <li>买一张 EZ-Link 卡,地铁公交通用</li>
-          <li>大部分场所支持刷卡 / Grab Pay</li>
-          <li>建议买当地 SIM / eSIM 或开通国际漫游</li>
-          <li>Google Maps 是刚需,提前装好</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 17 l5-5 4 3 7-8"/><path d="M14 6 h6 v6"/></svg>行前提醒</h3>
-        <ul>
-          <li>全年 25–32°C,湿热多阵雨,随身带伞</li>
-          <li>ArtScience Museum 门票建议官网提前买</li>
-          <li>Supertree 光影秀时间以官网当日为准</li>
-          <li>住宿推荐 Marina Bay 或 Bugis 一带</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="note">
-    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8 v5 M12 16.2 v0.1"/></svg>
-    <p style="margin:0;">以上航班时长、行程与政策仅供参考,出发前请以航司、新加坡移民关卡局(ICA)及当地实时信息为准;免签政策与展馆开放时间可能调整,建议提前核实。</p>
-  </div>
-</div>
 </body>
 </html>
