@@ -55,6 +55,10 @@
   .note{border:1px solid var(--line);padding:20px;font-size:13px;color:var(--muted);
         display:flex;gap:10px;align-items:flex-start;}
   .note .icon{margin-top:2px;color:var(--accent);}
+  .map-box{border:1px solid var(--line);padding:20px 14px 16px;overflow-x:auto;}
+  .legend{display:flex;flex-wrap:wrap;gap:16px 24px;margin:16px 2px 0;}
+  .legend-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);}
+  .legend-dot{width:11px;height:11px;border-radius:50%;flex:none;}
 </style>
 </head>
 <body>
@@ -93,6 +97,43 @@
         <text x="800" y="132" text-anchor="middle" font-size="11" fill="var(--muted)">傍晚入住过夜</text>
       </svg>
       <p class="route-note">全程围着红山村打转:溪谷玩水点分上下午两段,中间隔一顿午饭和一场午休错开正午最晒的时段,傍晚收工后直接住进步行或短驳可达的镇圩民宿,不用再挪地方。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>玩水地图</h2>
+    <div class="map-box">
+      <svg viewBox="0 0 760 380" style="width:100%;min-width:600px;height:auto;display:block;">
+        <path d="M 60 70 C 120 100, 150 120, 150 160 C 150 200, 170 215, 230 225 C 300 237, 330 235, 350 250 C 400 280, 430 290, 470 290 C 520 290, 555 270, 560 245 C 575 210, 620 195, 680 170" fill="none" stroke="var(--water)" stroke-width="20" stroke-linecap="round" opacity="0.35"/>
+        <path d="M 420 275 C 440 300, 460 315, 478 328" fill="none" stroke="var(--water)" stroke-width="14" stroke-linecap="round" opacity="0.3"/>
+
+        <ellipse cx="150" cy="160" rx="60" ry="42" fill="var(--water)" opacity="0.18" stroke="var(--water)" stroke-width="1.5"/>
+        <text x="150" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="var(--water)">深潭游泳区</text>
+        <text x="150" y="172" text-anchor="middle" font-size="11" fill="var(--muted)">水深及腰 · 水流平缓</text>
+
+        <ellipse cx="330" cy="235" rx="56" ry="38" fill="var(--accent2)" opacity="0.18" stroke="var(--accent2)" stroke-width="1.5"/>
+        <text x="330" y="229" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent2)">浅滩抓鱼区</text>
+        <text x="330" y="247" text-anchor="middle" font-size="11" fill="var(--muted)">水浅石多 · 翻石摸鱼</text>
+
+        <ellipse cx="492" cy="330" rx="56" ry="38" fill="var(--accent)" opacity="0.18" stroke="var(--accent)" stroke-width="1.5"/>
+        <text x="492" y="324" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent)">石缝摸蟹区</text>
+        <text x="492" y="342" text-anchor="middle" font-size="11" fill="var(--muted)">岸边石缝 · 手脚并用</text>
+
+        <circle cx="60" cy="70" r="7" fill="var(--ink)"/>
+        <text x="60" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">入口 · 停车</text>
+
+        <circle cx="560" cy="245" r="7" fill="var(--ink)"/>
+        <text x="596" y="240" text-anchor="start" font-size="12" font-weight="700" fill="var(--ink)">农家乐午饭</text>
+
+        <circle cx="680" cy="170" r="7" fill="var(--ink)"/>
+        <text x="680" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">镇圩民宿</text>
+      </svg>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-dot" style="background:var(--water)"></span>游泳区 · 深潭水深及腰</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--accent2)"></span>抓鱼区 · 浅滩翻石摸鱼</div>
+        <div class="legend-item"><span class="legend-dot" style="background:var(--accent)"></span>摸蟹区 · 岸边石缝</div>
+      </div>
+      <p class="route-note">示意图,非精确地图:河道走向和三个区域的相对位置仅供参考,具体安全河段以到达当天向导或村民现场指认为准,降雨后水位和区域范围都会变化。</p>
     </div>
   </section>
 
