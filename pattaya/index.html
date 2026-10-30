@@ -7,61 +7,59 @@
 <meta name="description" content="曼谷出发，两天一晚的芭提雅行程：真理寺、格兰岛、暹罗湾日落，含预算、交通与住哪一段的建议。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Noto+Serif+SC:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* 布局：一张"潮汐表"。整页是自北向南的一条海岸线，两天行程挂在时间刻度上，
-     日落时间是全页的锚点，其余安排都按它倒排。 */
+  /* 版式：一份竖向的行车时刻表。左侧是时间刻度，右侧是内容；
+     所有数字走等宽字体、右对齐，价格与位置信息从正文里拎出来；
+     宽屏时右栏挂一张固定的行程摘要，正文只留 680px。 */
   :root {
-    /* 颜色：沙纸底 + 暹罗湾的青 + 一点日落橘，橘只用在时间与"赶不上"的提示上 */
     --paper: #F2EEE3;
-    --surface: #FBF8F0;
-    --line: #DCD3BE;
-    --ink: #22201A;
-    --ink-soft: #5D574A;
-    --ink-faint: #8C8574;
+    --sheet: #FBF8F0;
+    --inset: #E3EBE5;
+    --line: #D9D0B9;
+    --line-strong: #B8AE93;
+    --ink: #1F1D17;
+    --ink-soft: #5A5446;
+    --ink-faint: #8B8471;
     --sea: #14615E;
-    --sea-soft: #DDEBE7;
     --sun: #A9502A;
-    --sun-soft: #F0E0D2;
 
-    /* 字体：拉丁与数字用 Kanit / Plex Mono，中文走系统黑体 */
     --font-display: 'Kanit', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     --font-body: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
 
-    --radius: 6px;
-    --shadow: 0 1px 2px rgba(34,32,26,.06), 0 8px 24px -12px rgba(34,32,26,.18);
+    --ruler: 62px;
+    --gut: 22px;
+    --col: 680px;
     color-scheme: light dark;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #14130F;
-      --surface: #1B1A15;
-      --line: #322F26;
-      --ink: #EDE7D9;
-      --ink-soft: #A8A091;
-      --ink-faint: #7A7466;
-      --sea: #4FBFAE;
-      --sea-soft: #14312C;
+      --paper: #13120E;
+      --sheet: #1A1915;
+      --inset: #16241F;
+      --line: #302C23;
+      --line-strong: #4A4536;
+      --ink: #EDE7D8;
+      --ink-soft: #A79F8D;
+      --ink-faint: #797263;
+      --sea: #55C3B1;
       --sun: #E08D5C;
-      --sun-soft: #33231A;
-      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
     }
   }
-
   :root[data-theme="dark"] {
-    --paper: #14130F;
-    --surface: #1B1A15;
-    --line: #322F26;
-    --ink: #EDE7D9;
-    --ink-soft: #A8A091;
-    --ink-faint: #7A7466;
-    --sea: #4FBFAE;
-    --sea-soft: #14312C;
+    --paper: #13120E;
+    --sheet: #1A1915;
+    --inset: #16241F;
+    --line: #302C23;
+    --line-strong: #4A4536;
+    --ink: #EDE7D8;
+    --ink-soft: #A79F8D;
+    --ink-faint: #797263;
+    --sea: #55C3B1;
     --sun: #E08D5C;
-    --sun-soft: #33231A;
-    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
   }
 
   * { box-sizing: border-box; }
@@ -74,230 +72,327 @@
     font-size: 16px;
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
-    padding-block: clamp(28px, 6vw, 56px);
+    padding-block: clamp(26px, 5vw, 52px);
     padding-left: max(18px, env(safe-area-inset-left, 0px));
     padding-right: max(18px, env(safe-area-inset-right, 0px));
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 2px; }
-
-  h1, h2, h3 { margin: 0; font-weight: 600; text-wrap: balance; }
+  h1, h2, h3 { margin: 0; font-weight: 700; text-wrap: balance; }
   p { margin: 0; }
   .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* 版心：窄屏单栏，宽屏左侧正文 + 右侧摘要 */
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    max-width: calc(var(--col) + 216px + 56px);
+    margin: 0 auto;
+  }
+  @media (min-width: 1080px) {
+    .page { grid-template-columns: minmax(0, var(--col)) 216px; gap: 56px; }
+    .rail { grid-column: 2; grid-row: 1 / span 2; align-self: start; position: sticky; top: 40px; }
+  }
 
   .back {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: .06em;
+    font-size: 12px;
+    letter-spacing: .08em;
     color: var(--ink-faint);
     text-decoration: none;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
   }
   .back:hover { color: var(--sea); }
 
-  /* ---------- 头：标题 + 日落刻度 ---------- */
-  .hero {
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 28px;
-  }
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--sea);
-    display: block;
-    margin-bottom: 14px;
-  }
-  .hero-top {
+  /* ---------- 头 ---------- */
+  .hero { border-bottom: 1px solid var(--line-strong); padding-bottom: 26px; }
+  .kicker {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px 24px;
-  }
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 13vw, 76px);
-    font-weight: 700;
-    letter-spacing: -.01em;
-    line-height: .92;
-    text-transform: uppercase;
-  }
-  h1 span {
-    display: block;
-    font-family: var(--font-body);
-    font-size: clamp(15px, 4vw, 18px);
-    font-weight: 500;
-    letter-spacing: .32em;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-top: 10px;
-    text-transform: none;
-  }
-  .sun-block {
+    align-items: baseline;
+    gap: 6px 14px;
     font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--ink-soft);
-    border-left: 2px solid var(--sun);
-    padding-left: 12px;
-    line-height: 1.9;
-  }
-  .sun-block b { font-size: 22px; font-weight: 600; color: var(--ink); display: block; line-height: 1.2; }
-  .sun-block .tag { color: var(--sun); letter-spacing: .08em; text-transform: uppercase; font-size: 10.5px; }
-  .sun-block .geo { display: block; margin-top: 7px; font-size: 10.5px; color: var(--ink-faint); letter-spacing: .03em; }
-
-  .lede {
-    margin-top: 22px;
-    font-size: 16.5px;
-    color: var(--ink-soft);
-    max-width: 34em;
-  }
-
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-top: 26px;
-  }
-  .fact { background: var(--surface); padding: 19px 14px; }
-  .fact dt {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: .1em;
+    font-size: 11px;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    margin-bottom: 5px;
+    margin-bottom: 16px;
   }
-  .fact dd { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.45; }
-  .fact dd small { display: block; font-weight: 400; font-size: 12px; color: var(--ink-soft); }
+  .kicker .th { color: var(--sea); }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(46px, 13.5vw, 82px);
+    font-weight: 700;
+    letter-spacing: -.015em;
+    line-height: .9;
+  }
+  .hero .cn {
+    font-family: var(--font-serif);
+    font-size: clamp(21px, 5.6vw, 27px);
+    font-weight: 500;
+    letter-spacing: .26em;
+    line-height: 1.5;
+    margin-top: 12px;
+    color: var(--ink);
+  }
+  .hero .cn em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: .62em;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    margin-left: .3em;
+  }
+  .lede {
+    font-family: var(--font-serif);
+    font-size: 16.5px;
+    line-height: 1.95;
+    color: var(--ink-soft);
+    margin-top: 20px;
+    max-width: 30em;
+  }
 
-  /* ---------- 通用小节 ---------- */
-  section { margin-top: clamp(38px, 8vw, 60px); }
+  /* 关键数字：印刷表格风，横线代替卡片 */
+  .sunline {
+    display: none;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .sunline b { font-size: 19px; font-weight: 500; color: var(--ink); letter-spacing: 0; }
+  .sunline .why { text-transform: none; letter-spacing: 0; font-family: var(--font-body); color: var(--ink-soft); }
+
+  .keystats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 26px;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .keystats div {
+    padding: 14px 10px 13px 0;
+    border-right: 1px solid var(--line);
+  }
+  .keystats div:last-child { border-right: none; }
+  .keystats dt {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .keystats dd { margin: 0; font-size: 14.5px; font-weight: 700; line-height: 1.35; }
+  .keystats dd span { display: block; font-weight: 400; font-size: 11.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 2px; }
+
+  /* ---------- 小节 ---------- */
+  section { margin-top: clamp(40px, 8vw, 58px); }
   .sec-head {
     display: flex;
     align-items: baseline;
     gap: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 22px;
-  }
-  .sec-head h2 {
-    font-family: var(--font-body);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: -.01em;
+    margin-bottom: 4px;
   }
   .sec-head .n {
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--sea);
+    font-size: 10.5px;
     letter-spacing: .1em;
+    color: var(--sea);
   }
-  .sec-head .hint { margin-left: auto; font-size: 12.5px; color: var(--ink-faint); white-space: nowrap; }
+  .sec-head h2 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  .sec-head .hint {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .sec-rule {
+    display: block;
+    height: 3px;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
 
-  /* ---------- 到法 ---------- */
-  .arrive { display: grid; gap: 10px; }
-  .leg {
+  /* ---------- 到法：时刻表 ---------- */
+  .ways { border-top: 1px solid var(--line); }
+  .way {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 2px 14px;
-    align-items: baseline;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 14px 16px;
+    gap: 2px 16px;
+    padding: 15px 0 16px;
+    border-bottom: 1px solid var(--line);
   }
-  .leg h3 { font-size: 15px; font-weight: 600; }
-  .leg .cost { font-family: var(--font-mono); font-size: 13px; color: var(--sea); white-space: nowrap; }
-  .leg p { grid-column: 1 / -1; font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
+  .way h3 { font-size: 15px; font-weight: 700; }
+  .way .price {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: var(--sea);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .way p { grid-column: 1 / -1; font-size: 13.5px; color: var(--ink-soft); line-height: 1.72; }
 
   /* ---------- 时间轴 ---------- */
-  .day-note {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    margin: -6px 0 18px;
-    padding-left: 14px;
-    border-left: 2px solid var(--sea-soft);
+  .daycap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    padding: 14px 0 10px;
+    border-bottom: 1px solid var(--line-strong);
   }
-  .tl { list-style: none; margin: 0; padding: 0; position: relative; --tl-time: 47px; --tl-gap: 18px; }
-  .tl::before {
-    content: "";
-    position: absolute;
-    left: calc(var(--tl-time) + var(--tl-gap) - 0.5px);
-    top: 8px;
-    bottom: 14px;
-    width: 1px;
-    background: var(--line);
+  .daycap .d {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .06em;
   }
+  .daycap .t {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .daycap .sum { margin-left: auto; font-size: 12px; color: var(--ink-soft); }
+
+  .tl { list-style: none; margin: 0; padding: 0; }
   .tl li {
     display: grid;
-    grid-template-columns: var(--tl-time) 1fr;
-    gap: 0 var(--tl-gap);
-    padding-bottom: 20px;
+    grid-template-columns: var(--ruler) minmax(0, 1fr);
     position: relative;
   }
-  .tl time {
+  .tl .t {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
     font-size: 12.5px;
     font-weight: 500;
     color: var(--ink-soft);
-    padding-top: 3px;
     text-align: right;
+    padding: 20px var(--gut) 0 0;
+    position: relative;
+    line-height: 1.4;
   }
-  .tl .body { min-width: 0; position: relative; padding-left: 16px; }
-  .tl .body::before {
+  /* 刻度：每个节点在轴上有一道横线，竖线把它们串起来 */
+  .tl .t::after {
     content: "";
     position: absolute;
-    left: -4px;
-    top: 10px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--paper);
-    border: 1.5px solid var(--sea);
+    right: 0;
+    top: 26px;
+    width: 10px;
+    height: 1px;
+    background: var(--ink-faint);
   }
-  .tl li.key .body::before { background: var(--sun); border-color: var(--sun); }
-  .tl li.key time { color: var(--sun); font-weight: 600; }
-  .tl h3 { font-size: 16px; font-weight: 700; letter-spacing: -.005em; }
-  .tl p { font-size: 14px; color: var(--ink-soft); margin-top: 3px; line-height: 1.72; }
-  .tl .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tl li::before {
+    content: "";
+    position: absolute;
+    left: var(--ruler);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--ink-faint);
+  }
+  .tl li:last-child::before { bottom: 40px; }
+  .body { padding: 16px 0 26px var(--gut); min-width: 0; }
+  .body h3 { font-size: 16.5px; font-weight: 700; letter-spacing: -.005em; }
+  .body p { font-size: 14px; color: var(--ink-soft); margin-top: 4px; line-height: 1.75; }
+  .body .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+    margin-top: 9px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+  .body .meta .cost { color: var(--sea); }
+  .body .meta a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .body .meta a:hover { color: var(--sea); border-color: var(--sea); }
 
-  .chip {
+  /* 锚点段落：色块，替掉原来的"重点"小圆点 */
+  .tl li.key .body {
+    background: var(--inset);
+    border-left: 3px solid var(--sea);
+    padding: 15px 16px 17px calc(var(--gut) - 3px);
+    margin: 10px 0 26px;
+  }
+  .tl li.key .t { color: var(--sun); font-weight: 500; }
+
+  /* 空档：把两段之间的空白时间写出来 */
+  .tl li.gap { grid-template-columns: var(--ruler) 1fr; }
+  .tl li.gap .body {
+    padding: 0 0 0 var(--gut);
+    margin-bottom: 26px;
+  }
+  .tl li.gap span {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: .02em;
-    padding: 2px 7px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    color: var(--ink-soft);
-    background: var(--surface);
-    text-decoration: none;
-    white-space: nowrap;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    color: var(--ink-faint);
+    border-top: 1px dashed var(--line);
+    padding-top: 5px;
+    margin-top: 4px;
   }
-  .chip.cost { color: var(--sea); border-color: color-mix(in srgb, var(--sea) 32%, var(--line)); }
-  .chip.go:hover { border-color: var(--sea); color: var(--sea); }
+  .tl li.gap .t::after { background: transparent; }
+
+  /* 夜间：两天之间的压缩带 */
+  .night {
+    display: grid;
+    grid-template-columns: var(--ruler) minmax(0, 1fr);
+    align-items: center;
+    margin: 4px 0 0;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background:
+      repeating-linear-gradient(135deg, transparent 0 6px, var(--line) 6px 7px);
+  }
+  .night .t {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    text-align: right;
+    padding-right: var(--gut);
+    letter-spacing: .06em;
+  }
+  .night .lbl {
+    padding-left: var(--gut);
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: var(--paper);
+    display: inline-block;
+    margin-left: calc(var(--gut) * -1);
+    padding: 2px 8px 2px var(--gut);
+  }
 
   /* ---------- 住哪 ---------- */
-  /* 一条湾：从北到南三个住宿段的位置关系，比三张并列卡片更说明问题 */
-  .bay {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 0 18px;
-  }
+  .bay { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 16px; }
   .bay div {
     position: relative;
-    padding-top: 22px;
+    padding-top: 20px;
     font-family: var(--font-mono);
     font-size: 10px;
     letter-spacing: .06em;
@@ -325,122 +420,106 @@
   }
   .bay div b {
     display: block;
-    font-family: var(--font-body);
-    font-size: 13.5px;
+    font-family: var(--font-serif);
+    font-size: 14.5px;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: .02em;
     color: var(--ink);
-    line-height: 1.3;
+    line-height: 1.35;
     margin-bottom: 1px;
   }
-  .areas { display: grid; gap: 10px; }
+  .areas { border-top: 1px solid var(--line); }
   .area {
     display: grid;
-    grid-template-columns: 92px 1fr;
-    gap: 4px 14px;
-    align-items: baseline;
-    padding: 14px 16px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
+    grid-template-columns: 1fr auto;
+    gap: 3px 16px;
+    padding: 15px 0 16px;
+    border-bottom: 1px solid var(--line);
   }
-  .area h3 { font-size: 15px; font-weight: 700; }
-  .area .zone { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); }
-  .area p { grid-column: 2; font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
-  .area .badge {
-    grid-column: 2;
+  .area h3 { font-family: var(--font-serif); font-size: 15.5px; font-weight: 700; }
+  .area .zone { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-faint); letter-spacing: .06em; display: block; margin-top: 1px; }
+  .area .price {
     font-family: var(--font-mono);
-    font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
     color: var(--sea);
-    margin-top: 2px;
+    text-align: right;
+    white-space: nowrap;
   }
+  .area p { grid-column: 1 / -1; font-size: 13.5px; color: var(--ink-soft); line-height: 1.72; }
 
   /* ---------- 预算 ---------- */
   .caliber {
     font-size: 12.5px;
     color: var(--ink-soft);
-    background: var(--sea-soft);
-    border-radius: var(--radius);
-    padding: 11px 14px;
-    margin-bottom: 14px;
-    line-height: 1.7;
+    line-height: 1.75;
+    padding: 11px 0 13px;
+    border-bottom: 1px solid var(--line);
   }
-  .caliber b { font-weight: 600; }
+  .caliber b { font-weight: 700; color: var(--ink); }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  caption { caption-side: top; text-align: left; }
-  th, td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: baseline; }
+  th, td { padding: 11px 8px; text-align: left; vertical-align: baseline; }
   th {
     font-family: var(--font-mono);
-    font-size: 10.5px;
-    letter-spacing: .08em;
+    font-size: 9.5px;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--ink-faint);
     font-weight: 500;
-    border-bottom-color: var(--ink-faint);
+    border-bottom: 1px solid var(--line-strong);
+    padding-left: 0;
   }
-  td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  td.item { font-weight: 600; }
-  td .why { display: block; font-weight: 400; font-size: 12.5px; color: var(--ink-soft); }
-  tfoot td { border-bottom: none; padding-top: 14px; font-weight: 700; }
+  td { border-bottom: 1px solid var(--line); }
+  td.item { font-weight: 700; padding-left: 0; }
+  td.item .why { display: block; font-weight: 400; font-size: 12.5px; color: var(--ink-soft); line-height: 1.6; margin-top: 1px; }
+  td.num, th.num {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    padding-right: 0;
+    width: 96px;
+  }
+  tfoot td {
+    border-bottom: none;
+    border-top: 1px solid var(--line-strong);
+    padding-top: 13px;
+    font-weight: 700;
+  }
   tfoot td.num { color: var(--sea); }
 
-  /* 窄屏：表格拆成块，否则两列数字会把项目名挤成竖条 */
-  @media (max-width: 540px) {
-    thead { display: none; }
-    table, tbody, tfoot { display: block; }
-    tr {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px 14px;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    td { display: block; border: none; padding: 0; }
-    td.item { grid-column: 1 / -1; font-size: 14.5px; }
-    td.num { text-align: left; font-size: 13.5px; color: var(--ink); }
-    td.num::before {
-      content: attr(data-l);
-      display: block;
-      font-size: 9.5px;
-      letter-spacing: .1em;
-      color: var(--ink-faint);
-    }
-    tfoot tr { border-bottom: none; }
-    tfoot td { padding-top: 0; }
-    tfoot td:first-child { grid-column: 1 / -1; font-weight: 700; }
-  }
-
   /* ---------- 实用 ---------- */
-  .pairs { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .pairs { border-top: 1px solid var(--line); }
   .pair {
     display: grid;
-    grid-template-columns: 84px 1fr;
-    gap: 4px 14px;
-    padding: 13px 0;
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 3px 16px;
+    padding: 13px 0 14px;
     border-bottom: 1px solid var(--line);
   }
   .pair dt {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10.5px;
     letter-spacing: .08em;
     color: var(--ink-faint);
     padding-top: 3px;
+    text-transform: uppercase;
   }
-  .pair dd { margin: 0; font-size: 14px; line-height: 1.72; }
-  .pair dd b { font-weight: 600; }
-  .warn { color: var(--sun); font-weight: 600; }
+  .pair dd { margin: 0; font-size: 13.5px; line-height: 1.75; }
+  .pair dd b { font-weight: 700; }
+  .warn { color: var(--sun); font-weight: 700; }
 
   details {
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    padding: 0 16px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 0;
   }
   summary {
     cursor: pointer;
     padding: 14px 0;
+    font-family: var(--font-serif);
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -458,214 +537,301 @@
     padding: 14px 0 18px;
     margin: 0;
     list-style: none;
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--ink-soft);
   }
-  .pack li::before { content: "□ "; font-family: var(--font-mono); color: var(--ink-faint); }
+  .pack li::before { content: "□"; font-family: var(--font-mono); color: var(--ink-faint); margin-right: 7px; }
+
+  /* ---------- 右栏摘要 ---------- */
+  .rail {
+    font-size: 12.5px;
+    border-top: 3px solid var(--sea);
+    padding-top: 12px;
+  }
+  .rail h2 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .rail .big {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+  .rail .big small { font-family: var(--font-mono); font-size: 10px; font-weight: 400; letter-spacing: .1em; color: var(--ink-faint); display: block; margin-bottom: 4px; text-transform: uppercase; }
+  .rail dl { margin: 14px 0 0; padding: 0; }
+  .rail dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 7px 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+  }
+  .rail dt { color: var(--ink-faint); }
+  .rail dd { margin: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .rail .links { margin-top: 14px; display: grid; gap: 5px; font-family: var(--font-mono); font-size: 11px; }
+  .rail .links a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .rail .links a:hover { color: var(--sea); border-color: var(--sea); }
 
   footer {
-    margin-top: 56px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
-    font-size: 12.5px;
+    margin-top: 50px;
+    padding-top: 16px;
+    border-top: 3px double var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: .04em;
     color: var(--ink-faint);
     display: flex;
     flex-wrap: wrap;
     gap: 6px 18px;
     justify-content: space-between;
   }
-  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
-  footer a:hover { color: var(--sea); border-color: var(--sea); }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--sea); }
 
   @media (max-width: 560px) {
-    /* 窄屏：右侧的注解换成标题下的一行，否则会把标题挤成两截 */
+    :root { --ruler: 48px; --gut: 15px; }
     .sec-head { flex-wrap: wrap; }
-    .sec-head .hint { margin-left: 0; flex-basis: 100%; white-space: normal; margin-top: -4px; font-size: 12px; }
+    .sec-head .hint { margin-left: 0; flex-basis: 100%; white-space: normal; font-size: 10px; }
+    .sunline {
+    display: none;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
   }
+  .sunline b { font-size: 19px; font-weight: 500; color: var(--ink); letter-spacing: 0; }
+  .sunline .why { text-transform: none; letter-spacing: 0; font-family: var(--font-body); color: var(--ink-soft); }
 
-  @media (max-width: 460px) {
-    .tl { --tl-time: 40px; --tl-gap: 14px; }
-    .tl time { font-size: 11.5px; }
-    .area { grid-template-columns: 1fr; }
-    .area p, .area .badge { grid-column: 1; }
-    .pair { grid-template-columns: 74px 1fr; }
+  .keystats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .keystats div:nth-child(2) { border-right: none; }
+    .keystats div:nth-child(1), .keystats div:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .tl .t { font-size: 11.5px; padding-top: 19px; }
+    .tl .t::after { width: 8px; top: 25px; }
+    .area { grid-template-columns: 1fr auto; }
+    .pair { grid-template-columns: 68px minmax(0, 1fr); }
+    .rail { display: none; }
+    .sunline { display: flex; }
+    td.num, th.num { width: 82px; }
+
+    /* 窄屏表格拆成块，否则两列数字把项目名挤成竖条 */
+    thead { display: none; }
+    table, tbody, tfoot { display: block; }
+    tr { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    td { display: block; border: none; padding: 0; width: auto; }
+    td.item { grid-column: 1 / -1; font-size: 14.5px; }
+    td.num { text-align: left; font-size: 13.5px; color: var(--ink); }
+    td.num::before { content: attr(data-l); display: block; font-size: 9.5px; letter-spacing: .1em; color: var(--ink-faint); }
+    tfoot tr { border-bottom: none; }
+    tfoot td { padding-top: 0; }
+    tfoot td:first-child { grid-column: 1 / -1; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .back, .chip.go { transition: color .15s ease, border-color .15s ease; }
+    .back, .body .meta a, .rail .links a, footer a { transition: color .15s ease, border-color .15s ease; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<div class="page">
+
+<div class="main">
 
 <a class="back" href="../">← 全部游记</a>
 
-<div class="hero">
-  <span class="eyebrow">泰国 · 春武里府 · 暹罗湾</span>
-  <div class="hero-top">
-    <h1>Pattaya<span>芭 提 雅 · 两 天 一 晚</span></h1>
-    <div class="sun-block">
-      <span class="tag">Sunset</span>
-      <b>17:50</b>
-      11 月日落约这时<br>行程按它倒排
-      <span class="geo">12.933°N · 100.883°E</span>
-    </div>
+<header class="hero">
+  <div class="kicker">
+    <span class="th">泰国</span>
+    <span>春武里府</span>
+    <span>暹罗湾</span>
+    <span class="mono">12.933°N 100.883°E</span>
   </div>
+  <h1>PATTAYA</h1>
+  <div class="cn">芭 提 雅 · 两 天 一 晚<em>48H</em></div>
   <p class="lede">芭提雅真正好用的部分只有一段：从北边的纳库鲁阿到南边的中天，一条贴着海湾的路。两天够把真理寺、格兰岛和一场日落串完，剩下的时间留给吃和按摩。</p>
 
-  <dl class="facts">
-    <div class="fact"><dt>时长</dt><dd>2 天 1 晚</dd></div>
-    <div class="fact"><dt>出发</dt><dd>曼谷<small>大巴 2 小时 / 包车 1.5 小时</small></dd></div>
-    <div class="fact"><dt>人均预算</dt><dd>≈ ¥1,100<small>约 5,000 THB，不含中国往返机票</small></dd></div>
-    <div class="fact"><dt>最佳月份</dt><dd>11 月 – 2 月<small>干季，日落最稳</small></dd></div>
+  <dl class="keystats">
+    <div><dt>时长</dt><dd>2 天 1 晚</dd></div>
+    <div><dt>出发</dt><dd>曼谷<span>大巴 2 小时 / 包车 1.5 小时</span></dd></div>
+    <div><dt>人均</dt><dd>≈ ¥1,100<span>约 5,000 THB，不含往返机票</span></dd></div>
+    <div><dt>季节</dt><dd>11 – 2 月<span>干季，日落最稳</span></dd></div>
   </dl>
-</div>
+  <p class="sunline"><span>Sunset</span> <b>17:50</b> <span class="why">11 月，行程按它倒排</span></p>
+</header>
 
 <section>
   <div class="sec-head"><span class="n">01</span><h2>怎么到</h2><span class="hint">素万那普 / 廊曼 → 芭提雅</span></div>
-  <div class="arrive">
-    <div class="leg">
-      <h3>机场大巴（最省）</h3>
-      <span class="cost">≈ 130 THB</span>
+  <span class="sec-rule"></span>
+  <div class="ways">
+    <div class="way">
+      <h3>机场大巴</h3>
+      <span class="price">130 THB</span>
       <p>素万那普机场 1 层 8 号门，直达芭提雅北路车站，约 2 小时，半小时一班，末班到 21:00 左右。廊曼出发要先进城或转一次，不如直接包车。</p>
     </div>
-    <div class="leg">
-      <h3>Bolt / Grab 包车（最省事）</h3>
-      <span class="cost">1,200 – 1,500 THB</span>
+    <div class="way">
+      <h3>Bolt / Grab 包车</h3>
+      <span class="price">1,200 – 1,500 THB</span>
       <p>素万那普到芭提雅约 1.5 小时，两人以上就跟大巴差不多价，还能直接送到酒店门口。回程建议提前一晚在 App 里约，晚上车少。</p>
     </div>
-    <div class="leg">
-      <h3>飞乌塔堡（U-Tapao）</h3>
-      <span class="cost">机场到市区 200 – 400 THB</span>
+    <div class="way">
+      <h3>飞乌塔堡 U-Tapao</h3>
+      <span class="price">200 – 400 THB</span>
       <p>芭提雅自己的机场，距市区约 35 公里、40 分钟。有直飞就选它，省掉曼谷那一段。落地用 Bolt 叫车比柜台便宜。</p>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="sec-head"><span class="n">02</span><h2>第一天 · 落地到日落</h2><span class="hint">北 → 南，沿海湾走</span></div>
-  <p class="day-note">这一天不安排海上项目，把白天留给光线最好的两个地方，傍晚一次性看完日落。</p>
+  <div class="sec-head"><span class="n">02</span><h2>第一天</h2><span class="hint">北 → 南，沿海湾走</span></div>
+  <span class="sec-rule"></span>
+
+  <div class="daycap">
+    <span class="d">落地到日落</span>
+    <span class="t">Day 1 · 08:00 – 23:00</span>
+    <span class="sum">这一天不排海上项目</span>
+  </div>
 
   <ol class="tl">
     <li>
-      <time>08:00</time>
+      <span class="t">08:00</span>
       <div class="body">
         <h3>曼谷出发</h3>
         <p>大巴落地在芭提雅北路车站，先别急着办入住，把行李寄存在酒店前台。北路的酒店离车站最近，走过去也就十分钟。</p>
-        <div class="meta"><span class="chip cost">约 130 THB</span><span class="chip">2 小时</span></div>
+        <div class="meta"><span class="cost">130 THB</span><span>2 小时</span></div>
       </div>
     </li>
     <li>
-      <time>11:00</time>
+      <span class="t">11:00</span>
       <div class="body">
         <h3>真理寺</h3>
         <p>全木结构、不用一根钉子，建在海岬上，从 1981 年盖到现在还没完工。室内光线偏暗，雕刻细节在正午反而不容易拍塌，戴顶帽子——海风大但没遮挡。门票含一场室内表演，时间表在入口处看。</p>
-        <div class="meta"><span class="chip cost">500 THB</span><span class="chip">1.5 小时</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Sanctuary+of+Truth+Pattaya" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">500 THB</span><span>1.5 小时</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Sanctuary+of+Truth+Pattaya" target="_blank" rel="noopener">地图</a></div>
+      </div>
+    </li>
+    <li class="gap"><span class="t"></span><div class="body"><span>· 1 小时 45 分空档，够吃一顿海鲜 ·</span></div></li>
+    <li>
+      <span class="t">12:45</span>
+      <div class="body">
+        <h3>纳库鲁阿海鲜市场</h3>
+        <p>本地人的做法：在市场里挑活的蟹、虾、血蛤，拿到门口摊位按公斤付加工费现做。比海边餐厅便宜一半，也比中天那些招呼你进店的排档实在。挑完说清楚要烤还是要蒸。</p>
+        <div class="meta"><span class="cost">人均 300 – 500 THB</span><span>1 小时</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lan+Pho+Naklua+Market+Pattaya" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
     <li>
-      <time>12:45</time>
+      <span class="t">14:30</span>
       <div class="body">
-        <h3>纳库鲁阿海鲜市场吃饭</h3>
-        <p>本地人的做法：在市场里挑活的蟹、虾、血蛤，拿到门口摊位按公斤付加工费现做。比海边餐厅便宜一半，也比中天那些招呼你进店的排档实在。挑完记得说清楚要烤还是要蒸。</p>
-        <div class="meta"><span class="chip cost">人均 300 – 500 THB</span><span class="chip">1 小时</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Lan+Pho+Naklua+Market+Pattaya" target="_blank" rel="noopener">地图</a></div>
-      </div>
-    </li>
-    <li>
-      <time>14:30</time>
-      <div class="body">
-        <h3>入住 + 躲太阳</h3>
-        <p>芭提雅下午两点到四点的太阳最毒，这段时间不要在沙滩上硬扛。酒店泳池、房间午睡、或者去 Central 的商场吹空调都行。住哪一段看后面的对比。</p>
-        <div class="meta"><span class="chip">2 小时</span></div>
+        <h3>入住，躲太阳</h3>
+        <p>下午两点到四点的太阳最毒，这段时间不要在沙滩上硬扛。酒店泳池、房间午睡、或者去 Central 吹空调都行。住哪一段看后面第 04 节。</p>
+        <div class="meta"><span>2 小时</span></div>
       </div>
     </li>
     <li class="key">
-      <time>16:45</time>
+      <span class="t">16:45</span>
       <div class="body">
         <h3>帕塔纳克山观景台</h3>
         <p>一座小山丘，免费的观景台，能把整个芭提雅湾的弧线看全——这也是判断方向最方便的地方：北边是纳库鲁阿，正中是北路海滩，南边一直延到中天。日落前四十分钟到，占个栏杆边的位置。</p>
-        <div class="meta"><span class="chip">免费</span><span class="chip">1 小时</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Khao+Phra+Tamnak+Viewpoint+Pattaya" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">免费</span><span>1 小时</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Khao+Phra+Tamnak+Viewpoint+Pattaya" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
     <li class="key">
-      <time>17:50</time>
+      <span class="t">17:50</span>
       <div class="body">
         <h3>日落</h3>
         <p>太阳落进暹罗湾，这个季节大概 17:50，前后只有二十分钟最好的颜色。手机拍就够，脚架会被人群挤翻。</p>
-        <div class="meta"><span class="chip">20 分钟</span></div>
+        <div class="meta"><span>20 分钟</span></div>
       </div>
     </li>
     <li>
-      <time>19:00</time>
+      <span class="t">19:00</span>
       <div class="body">
         <h3>中天海边吃晚饭</h3>
         <p>中天海滩路边那一串海鲜排档，桌子直接摆在沙滩上，点烤虾、咖喱蟹、冬阴功，配一瓶冰的大象啤酒。风大，纸菜单会被吹走。</p>
-        <div class="meta"><span class="chip cost">人均 500 – 700 THB</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Pupen+Seafood+Jomtien" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">人均 500 – 700 THB</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Pupen+Seafood+Jomtien" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
     <li>
-      <time>21:00</time>
+      <span class="t">21:00</span>
       <div class="body">
         <h3>夜市，或者早点睡</h3>
         <p>周五到周日的 Thepprasit 夜市摊位最全，烤鱿鱼、芒果糯米饭、本地小吃都在这儿。第二天要赶早班船，走一圈就回，别在步行街喝到半夜。</p>
-        <div class="meta"><span class="chip cost">人均 150 – 300 THB</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Thepprasit+Night+Market+Pattaya" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">人均 150 – 300 THB</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Thepprasit+Night+Market+Pattaya" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
   </ol>
 </section>
 
 <section>
-  <div class="sec-head"><span class="n">03</span><h2>第二天 · 出海与返程</h2><span class="hint">格兰岛半天，回程别压太晚</span></div>
-  <p class="day-note">早班船人少、海面平。中午回岸，下午留一个可选项目，傍晚回曼谷——走高速赶上下班高峰时，多留半小时。</p>
+  <div class="night"><span class="t">23:00<br>07:15</span><span class="lbl">睡觉 8 小时，第二天早班船</span></div>
+
+  <div class="sec-head" style="margin-top:34px"><span class="n">03</span><h2>第二天</h2><span class="hint">格兰岛半天，回程别压太晚</span></div>
+  <span class="sec-rule"></span>
+
+  <div class="daycap">
+    <span class="d">出海与返程</span>
+    <span class="t">Day 2 · 07:15 – 19:00</span>
+    <span class="sum">下午二选一，别都塞</span>
+  </div>
 
   <ol class="tl">
     <li>
-      <time>07:15</time>
+      <span class="t">07:15</span>
       <div class="body">
         <h3>早饭，退房寄存</h3>
         <p>酒店自助或路边粥摊都行。退房后行李寄存在前台，晚上回来取，不用背去岛上。</p>
-        <div class="meta"><span class="chip">45 分钟</span></div>
+        <div class="meta"><span>45 分钟</span></div>
       </div>
     </li>
     <li class="key">
-      <time>08:00</time>
+      <span class="t">08:00</span>
       <div class="body">
         <h3>Bali Hai 码头 → 格兰岛</h3>
         <p>公共渡轮在 Bali Hai 码头最里面的栈桥，30 THB、45 分钟，直接到 Tawaen 海滩。想快就坐快艇，150–300 THB、15 分钟，但会拉着你绕一圈卖水上项目，坚持说不要就行。</p>
-        <div class="meta"><span class="chip cost">30 THB（渡轮）</span><span class="chip">45 分钟</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Hai+Pier+Pattaya" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">30 THB 渡轮</span><span>45 分钟</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Hai+Pier+Pattaya" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
     <li>
-      <time>09:00</time>
+      <span class="t">09:00</span>
       <div class="body">
         <h3>岛上两小时</h3>
         <p>Tawaen 沙滩设施齐全但人多；想安静一点就往北走到 Tien 海滩，走路十几分钟。浮潜、摩托艇都是现场议价，先问清是"每人"还是"每艇"、含不含油。</p>
-        <div class="meta"><span class="chip">2.5 小时</span><span class="chip">水上项目另计 300 – 800 THB</span></div>
+        <div class="meta"><span>2.5 小时</span><span>水上项目 300 – 800 THB</span></div>
       </div>
     </li>
     <li>
-      <time>12:00</time>
+      <span class="t">12:00</span>
       <div class="body">
         <h3>回岸，吃午饭</h3>
         <p>渡轮回 Bali Hai，午饭在北路或中天解决。这一顿吃简单点，泰式炒河粉、青木瓜沙拉，人均 150 THB 就够。</p>
-        <div class="meta"><span class="chip cost">人均 150 THB</span></div>
+        <div class="meta"><span class="cost">人均 150 THB</span></div>
       </div>
     </li>
     <li>
-      <time>14:00</time>
+      <span class="t">14:00</span>
       <div class="body">
-        <h3>选一个：东芭乐园 / 按摩</h3>
+        <h3>东芭乐园，或者按摩</h3>
         <p>东芭乐园在市区东南 20 分钟车程，热带植物园加大象表演，走完要两小时，门票不便宜；只想放松就选泰式按摩，一小时 300–500 THB，中天和北路沿街很多家。二选一，不要都塞。</p>
-        <div class="meta"><span class="chip cost">东芭 500 THB</span><span class="chip cost">按摩 300 – 500 THB</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Nong+Nooch+Tropical+Garden" target="_blank" rel="noopener">东芭地图</a></div>
+        <div class="meta"><span class="cost">东芭 500 THB</span><span class="cost">按摩 300 – 500 THB</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Nong+Nooch+Tropical+Garden" target="_blank" rel="noopener">东芭地图</a></div>
       </div>
     </li>
     <li>
-      <time>17:00</time>
+      <span class="t">17:00</span>
       <div class="body">
         <h3>取行李，回曼谷</h3>
         <p>大巴从北路车站发车，末班 21:00 左右，两小时到素万那普。赶飞机的话，起飞前留足 4 小时。不赶时间可以在海边再吃一顿，八点再走。</p>
-        <div class="meta"><span class="chip cost">130 THB</span><span class="chip">2 小时</span><a class="chip go" href="https://www.google.com/maps/search/?api=1&amp;query=Pattaya+North+Road+Bus+Station" target="_blank" rel="noopener">地图</a></div>
+        <div class="meta"><span class="cost">130 THB</span><span>2 小时</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Pattaya+North+Road+Bus+Station" target="_blank" rel="noopener">地图</a></div>
       </div>
     </li>
   </ol>
@@ -673,42 +839,43 @@
 
 <section>
   <div class="sec-head"><span class="n">04</span><h2>住哪一段</h2><span class="hint">一晚，位置比星级重要</span></div>
+  <span class="sec-rule"></span>
+
   <div class="bay">
     <div><b>纳库鲁阿</b>Naklua · 北</div>
     <div><b>北路海滩</b>North Rd · 中</div>
     <div><b>中天</b>Jomtien · 南</div>
   </div>
+
   <div class="areas">
     <div class="area">
-      <h3>纳库鲁阿</h3>
-      <span class="zone">北 · Naklua</span>
-      <p>离车站、真理寺、海鲜市场都近，安静，适合按这份行程走。缺点是夜里没什么可逛的。</p>
-      <span class="badge">1,200 – 2,500 THB / 晚</span>
+      <h3>纳库鲁阿<span class="zone">离车站、真理寺、海鲜市场最近</span></h3>
+      <span class="price">1,200 – 2,500</span>
+      <p>安静，适合按这份行程走。缺点是夜里没什么可逛的，想吃夜宵要往南走。</p>
     </div>
     <div class="area">
-      <h3>北路海滩</h3>
-      <span class="zone">中 · North / Central Rd</span>
-      <p>商场、餐厅、双条车都在步行范围，第一次来最不容易出错。夜里会比较吵，选房间时避开临街。</p>
-      <span class="badge">1,500 – 3,500 THB / 晚</span>
+      <h3>北路海滩<span class="zone">商场、餐厅、双条车都在步行范围</span></h3>
+      <span class="price">1,500 – 3,500</span>
+      <p>第一次来最不容易出错。夜里会比较吵，选房间时避开临街那一面。</p>
     </div>
     <div class="area">
-      <h3>中天</h3>
-      <span class="zone">南 · Jomtien</span>
-      <p>沙滩更宽、人更少，海鲜排档就在门口，适合只想躺着的人。去格兰岛的码头要坐 15 分钟双条车。</p>
-      <span class="badge">1,300 – 3,000 THB / 晚</span>
+      <h3>中天<span class="zone">沙滩更宽、人更少，排档在门口</span></h3>
+      <span class="price">1,300 – 3,000</span>
+      <p>适合只想躺着的人。去格兰岛的码头要坐 15 分钟双条车，赶早班船得早起一点。</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="n">05</span><h2>预算</h2><span class="hint">人均，泰铢与人民币</span></div>
-  <div class="caliber"><b>口径：</b>2026 年 10 月的常见价格区间，汇率按 <b>1 元 ≈ 4.5 THB</b> 折算；门票和车费以现场为准，节假日和旺季上浮两成。不含中国往返机票与购物。</div>
+  <span class="sec-rule"></span>
+  <p class="caliber"><b>口径：</b>2026 年 10 月的常见价格区间，汇率按 <b>1 元 ≈ 4.5 THB</b> 折算；门票和车费以现场为准，节假日与旺季上浮两成。不含中国往返机票与购物。</p>
   <table>
     <thead>
       <tr><th>项目</th><th class="num">THB</th><th class="num">CNY</th></tr>
     </thead>
     <tbody>
-      <tr><td class="item">曼谷往返<span class="why">大巴 260，包车则按两人分摊算</span></td><td class="num" data-l="THB">260 – 800</td><td class="num" data-l="CNY">58 – 178</td></tr>
+      <tr><td class="item">曼谷往返<span class="why">大巴 260，包车按两人分摊</span></td><td class="num" data-l="THB">260 – 800</td><td class="num" data-l="CNY">58 – 178</td></tr>
       <tr><td class="item">市内交通<span class="why">Bolt 三趟 + 双条车若干</span></td><td class="num" data-l="THB">300 – 600</td><td class="num" data-l="CNY">67 – 133</td></tr>
       <tr><td class="item">住宿一晚<span class="why">3 – 4 星，双人房分摊到每人</span></td><td class="num" data-l="THB">700 – 1,500</td><td class="num" data-l="CNY">156 – 333</td></tr>
       <tr><td class="item">门票与船票<span class="why">真理寺 500 + 渡轮往返 60</span></td><td class="num" data-l="THB">560</td><td class="num" data-l="CNY">124</td></tr>
@@ -723,12 +890,13 @@
 
 <section>
   <div class="sec-head"><span class="n">06</span><h2>实用</h2><span class="hint">出发前看一遍</span></div>
+  <span class="sec-rule"></span>
   <dl class="pairs">
     <div class="pair"><dt>签证</dt><dd>中泰互免，单次停留不超过 <b>30 天</b>，护照有效期需 6 个月以上。入境可能抽查返程机票和住宿单，手机里截图备着。</dd></div>
     <div class="pair"><dt>时区</dt><dd>泰国比北京慢 <b>1 小时</b>。这份行程里的时间都是当地时间。</dd></div>
     <div class="pair"><dt>天气</dt><dd>11 月到 2 月是干季，白天 30℃ 上下、夜里 24℃；6 到 10 月是雨季，多数是午后一阵急雨，来得快去得也快。</dd></div>
-    <div class="pair"><dt>市内交通</dt><dd>双条车（songthaew）沿 Beach Road 单向循环，招手即停，<span class="mono">10 – 20 THB</span> 一段。用 <b>Bolt</b> 比 Grab 便宜，市区内常见 60–120 THB。</dd></div>
-    <div class="pair"><dt>钱与付</dt><dd>现金仍然好用，夜市、双条车、海鲜市场只收现金。机场换汇汇率差，市区 SuperRich 一类换汇点更划算，也可以直接用银联在 ATM 取。</dd></div>
+    <div class="pair"><dt>市内</dt><dd>双条车沿 Beach Road 单向循环，招手即停，<span class="mono">10 – 20 THB</span> 一段。用 <b>Bolt</b> 比 Grab 便宜，市区内常见 60–120 THB。</dd></div>
+    <div class="pair"><dt>付款</dt><dd>现金仍然好用，夜市、双条车、海鲜市场只收现金。机场换汇汇率差，市区 SuperRich 一类换汇点更划算，也可以直接用银联在 ATM 取。</dd></div>
     <div class="pair"><dt>手机卡</dt><dd>机场 AIS / True 游客卡，8 天 15GB 约 300 THB；手机支持 eSIM 的话出发前先买好，落地就有网。</dd></div>
     <div class="pair"><dt>注意</dt><dd><span class="warn">租摩托要国际驾照</span>，没有就是罚款；水上项目一律现场议价，别在码头买打包票；海上活动下午风浪大，尽量排在上午。</dd></div>
   </dl>
@@ -736,8 +904,9 @@
 
 <section>
   <div class="sec-head"><span class="n">07</span><h2>打包</h2><span class="hint">两天，一个登机箱</span></div>
+  <span class="sec-rule"></span>
   <details>
-    <summary>清单（点开）</summary>
+    <summary>清单</summary>
     <ul class="pack">
       <li>护照 + 返程机票截图</li>
       <li>泳衣、速干毛巾</li>
@@ -750,16 +919,37 @@
       <li>防水手机袋</li>
       <li>充电宝、插座转换头</li>
       <li>小面额泰铢现金</li>
-      <li>一个可以装湿衣服的袋子</li>
+      <li>一个装湿衣服的袋子</li>
     </ul>
   </details>
 </section>
 
 <footer>
-  <span>价格与营业时间核对于 2026-10-30，出发前再确认一次。</span>
+  <span>价格与营业时间核对于 2026-10-30</span>
   <a href="../">← 全部游记</a>
 </footer>
 
 </div>
+
+<aside class="rail">
+  <h2>行程摘要</h2>
+  <div class="big"><small>Sunset</small>17:50</div>
+  <dl>
+    <div><dt>Day 1</dt><dd>08:00 – 23:00</dd></div>
+    <div><dt>Day 2</dt><dd>07:15 – 19:00</dd></div>
+    <div><dt>渡轮</dt><dd>08:00 首班</dd></div>
+    <div><dt>单程</dt><dd>130 THB</dd></div>
+    <div><dt>人均</dt><dd>≈ 5,000 THB</dd></div>
+  </dl>
+  <div class="links">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Sanctuary+of+Truth+Pattaya" target="_blank" rel="noopener">真理寺</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Khao+Phra+Tamnak+Viewpoint+Pattaya" target="_blank" rel="noopener">观景台</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Hai+Pier+Pattaya" target="_blank" rel="noopener">Bali Hai 码头</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Pattaya+North+Road+Bus+Station" target="_blank" rel="noopener">北路车站</a>
+  </div>
+</aside>
+
+</div>
+
 </body>
 </html>
